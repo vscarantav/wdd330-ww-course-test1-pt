@@ -1,0 +1,190 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S02 – Atividade de Aprendizagem: S02: APIs Web Nativas do Navegador</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span class="active"><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S02 – Atividade de Aprendizagem: S02: APIs Web Nativas do Navegador</h2>
+<h3>Visão Geral</h3>
+<p>A esta altura, no seu próprio desenvolvimento, você provavelmente já percebeu que os desenvolvedores não precisam escrever
+      tudo
+      sozinhos e que você já usou APIs Web que são nativas (incorporadas) do navegador em seu trabalho. Existem
+      muitas APIs nativas e ainda mais interfaces (tipos de objeto) disponíveis para serem usadas no desenvolvimento web. </p>
+<div class="callout info">
+<p>Você já usou as APIs DOM, Fetch e localStorage em sua jornada de desenvolvimento web.</p>
+</div>
+<p>Esta atividade de aprendizagem se concentra em algumas dessas APIs Web suportadas em navegadores modernos e no tempo de execução do Node.js. </p>
+<h3>Preparação</h3>
+<h4>Storage API (sessão)</h4>
+<p>A <code>sessionStorage</code> API é ótima para dados temporários, como armazenar o progresso do formulário durante uma única sessão
+      do usuário, acompanhar qual aba está ativa e manter sinalizadores apenas enquanto a aba estiver aberta. Ela não requer um
+      banco de dados nem o uso de cookies. </p>
+<p>Ela está disponível apenas durante uma sessão ativa e é limpa quando a aba é fechada, tornando-a um pouco mais
+      segura do que <code>localStorage</code> dado que os dados do localStorage persistem mesmo após o navegador ser fechado.</p>
+<div class="callout info">
+<p>Os dados em <code>sessionStorage</code> não são completamente seguros e não devem ser usados para armazenar informações
+        sensíveis.</p>
+</div>
+<p>Para definir um item no armazenamento de sessão, use esta forma geral onde chave é o identificador e valor são os dados que você deseja
+      armazenar:</p>
+<pre><code class="javascript">sessionStorage.setItem('key', 'value');</code></pre>
+<p>Para recuperar um item do armazenamento de sessão, use esta forma geral:</p>
+<pre><code class="javascript">sessionStorage.getItem('key');</code></pre>
+<p>Para remover um item do armazenamento de sessão, use:</p>
+<pre><code class="javascript">sessionStorage.removeItem('key');</code></pre>
+<p>Para limpar todos os itens do armazenamento de sessão, use:</p>
+<pre><code class="javascript">sessionStorage.clear();</code></pre>
+<p>Para verificar se um item do armazenamento de sessão existe, use esta forma geral:</p>
+<pre><code class="javascript">if (sessionStorage.getItem('key') !== null) { 
+  // item exists
+}</code></pre>
+<div class="callout info">
+<p>O seguinte CodePen <a href="https://codepen.io/BYU-Idaho/pen/NPPZXzp" target="_blank">sessionStorage</a> fornece um exemplo do uso do sessionStorage.</p>
+</div>
+<h4>API de Validação</h4>
+<p>A Validation API é uma API nativa do navegador que permite responder à validação da entrada do usuário em formulários
+      HTML. Ela fornece uma maneira de verificar se os atributos definidos no HTML <code>input</code> foram atendidos. Coisas como ser <code>required</code>, ter um formato específico ou estar dentro de uma determinada faixa, por exemplo, usando <code>min</code> e <code>max</code>.
+    </p>
+<p>Para usar a Validation API, você pode usar o <code>checkValidity()</code> método em um elemento de entrada. Este método
+      retorna um valor booleano indicando se a entrada é válida ou não. Se a entrada for inválida, você pode usar o <code>setCustomValidity()</code> método para definir uma mensagem de erro personalizada. </p>
+<p>Para verificar se uma entrada é válida, use esta forma geral:</p>
+<pre><code class="javascript">if (inputElement.checkValidity()) {
+  // input is valid
+} else {
+  // input is invalid
+  inputElement.setCustomValidity('Custom error message');
+}</code></pre>
+<p>A variável, <code>inputElement</code>, refere-se ao elemento de entrada referenciado que você deseja validar.</p>
+<div class="callout info">
+<p>O seguinte CodePen <a href="https://codepen.io/BYU-Idaho/pen/raagpad" target="_blank">API de Validação</a> usa o <code>checkValidity()</code> método para verificar um requisito de padrão de entrada do usuário.</p>
+</div>
+<h4>Geolocation API</h4>
+<p>A Geolocation API é uma API nativa do navegador que permite acessar a localização geográfica do usuário. Ela
+      fornece uma maneira de obter a posição atual do usuário em latitude e longitude, monitorar alterações de posição e
+      tratar erros que possam ocorrer ao tentar acessar a localização.</p>
+<p>Para usar a Geolocation API, você pode usar o <code>navigator.geolocation</code> objeto. Este objeto fornece
+      métodos para obter a posição atual do usuário e monitorar alterações de posição.</p>
+<p>Para obter a posição atual do usuário, use esta forma geral:</p>
+<pre><code class="javascript">navigator.geolocation.getCurrentPosition(successCallback, errorCallback);</code></pre>
+<p>A variável, <code>successCallback</code>, é uma função que é chamada quando a posição é recuperada com
+      sucesso. A variável, <code>errorCallback</code>, é uma função que é chamada quando ocorre um erro
+      ao recuperar a posição.</p>
+<p>Para monitorar alterações de posição, use esta forma geral:</p>
+<pre><code class="javascript">navigator.geolocation.watchPosition(successCallback, errorCallback);</code></pre>
+<p> O exemplo a seguir usa o <code>getCurrentPosition()</code> método para obter sua posição em latitude e longitude
+      e determinar uma região geográfica do mundo. <div class="callout location">
+<button id="location-button" style="padding: .5rem; border-radius: 10px;" type="button">Mostrar Localização</button>
+</div>
+</p>
+<details>
+<summary>Ver Código de exemplo</summary>
+<pre><code class="javascript">const button = document.querySelector("#location-button");
+const location = document.querySelector(".location");
+        
+button.addEventListener("click", function () {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        // output
+        location.innerHTML = `Latitude: ${latitude} 🧭 Longitude: ${longitude}`;
+        location.innerHTML += `<br/>Region: ${getRegion(latitude, longitude)}`;
+      },
+      function (error) {
+        location.textContent = `Error: ${error.message}`;
+      }
+    );  
+    } else {
+      location.textContent = "Geolocation is not supported by this browser.";
+    }
+});
+
+function getRegion(lat, lon) {
+  if (lon &gt; 180) lon -= 360; //normalize to -180..180
+
+  switch (true) {
+    // North America (excl. Mexico/Central America)
+    case lat &gt;= 24 &amp;&amp; lat &lt;= 83 &amp;&amp; lon &gt;= -172 &amp;&amp; lon &lt;= -52:
+      return "North America" ;
+    // Mexico and Central America
+    case lat &gt;= 7 &amp;&amp; lat &lt; 24 &amp;&amp; lon &gt;= -118 &amp;&amp; lon &lt;= -77:
+      return "Mexico and Central America";
+    // South America
+    case lat &gt;= -56 &amp;&amp; lat &lt;= 13 &amp;&amp; lon &gt;= -82 &amp;&amp; lon &lt;= -34:
+      return "South America";
+    // Europe
+    case lat&gt;= 35 &amp;&amp; lat &lt;= 71 &amp;&amp; lon &gt;= -25 &amp;&amp; lon &lt;= 45:
+      return "Europe";
+    // Africa
+    case lat &gt;= -35 &amp;&amp; lat &lt;= 37 &amp;&amp; lon &gt;= -17 &amp;&amp; lon &lt;= 52:
+      return "Africa";
+    // Asia
+    case lat &gt;= 5 &amp;&amp; lat &lt;= 80 &amp;&amp; lon &gt;= 45 &amp;&amp; lon &lt;= 180:
+      return "Asia";
+    // Oceania
+    case lat &gt;= -50 &amp;&amp; lat &lt;= 0 &amp;&amp; lon &gt;= 110 &amp;&amp; lon &lt;= 180:
+      return "Oceania";
+    default:
+      return "Not mapped";
+  }
+}</code></pre>
+</details>
+<div class="callout warning">
+<p>Seu navegador solicitará permissão para permitir que esta página descubra sua localização.</p>
+</div>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">Lista completa de APIs Web</a> – MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction" target="blank">Usando APIs Web</a> – MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript" target="_blank">Usando validação de JavaScript</a> – MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API" target="_blank">API de
+            Geolocalização</a> – MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SessionStorage" target="_blank">API de
+            Session Storage</a> – MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage" target="_blank">Tutorial da API Canvas</a> – MDN</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="../scripts/getGeoLocation.js"></script>
+</body>
+</html>

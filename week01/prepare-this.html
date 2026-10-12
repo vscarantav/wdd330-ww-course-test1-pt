@@ -1,0 +1,132 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S01 – Atividade de Aprendizagem: Métodos de Objeto, "this"</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span class="active"><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S01 – Atividade de Aprendizagem: Métodos de Objeto, "this"</h2>
+<h3>Visão Geral</h3>
+<p>Nesta atividade, você aprenderá sobre a <code>this</code> palavra-chave em JavaScript e como ela é usada para acessar
+      propriedades e métodos de um objeto.</p>
+<p>O <code>this</code> método é uma palavra-chave especial em JavaScript que se refere à instância atual do objeto. Ele é
+      usado para acessar propriedades e métodos do objeto em seu próprio contexto. </p>
+<p>Nesta atividade, você aprenderá sobre a <code>this</code> palavra-chave em JavaScript e como ela é usada para acessar
+      propriedades e métodos de um objeto.</p>
+<h3>Preparação</h3>
+<p>Em JavaScript, a <code>this</code> palavra-chave é útil ao trabalhar com objetos e elementos do DOM porque
+      fornece uma referência dinâmica ao
+      contexto atual — ou seja, o objeto ou elemento que está executando o código no momento. Ela tem significados diferentes
+      dependendo de como é usada. </p>
+<p>Isso permite a reutilização de código em métodos e manipuladores de eventos, suportando assim um código limpo e modular que é mais fácil de
+      manter.</p>
+<div class="callout warning">
+<p>Quando você perde o contexto de <code>this</code>, ela não se refere mais ao objeto ou elemento que você espera, retornando assim <code>undefined</code> ou o objeto global como o <code>window</code> nos navegadores.</p>
+<p>Por exemplo, se você usar uma função arrow em um escutador de eventos do DOM, <code>this</code> não apontará para o
+        elemento.</p>
+<pre><code>document.querySelector("button").addEventListener("click", () =&gt; {
+  console.log(this); // ❌ this is not referencing the button element as maybe expected.
+  // Arrow functions do not have their own this.
+});</code></pre>
+</div>
+<p>Para preservar o controle de <code>this</code>, existem várias técnicas que são úteis, especialmente ao lidar
+      com callbacks ou manipuladores de eventos.</p>
+<ul>
+<li>O <code>bind()</code> método para definir explicitamente o valor de <code>this</code> em uma função. <pre><code class="javascript">const show = obj.showMessage.bind(obj); // Binds 'this' to obj</code></pre>
+</li>
+<li>Como as funções arrow não têm seu próprio <code>this</code>, elas podem ser usadas para preservar o contexto de <code>this</code> em um escopo léxico envolvente, como em classes ou temporizadores. </li>
+</ul>
+<h3>Instruções da Atividade</h3>
+<p> Conclua as seguintes etapas para entender como e por que a <code>this</code> palavra-chave se comporta em diferentes contextos,
+      como método de objeto, escopo global, manipulador de eventos. O objetivo é entender por que <code>this</code> é
+      importante para acessar a instância atual do objeto. </p>
+<div class="callout info">
+<p>Para avaliar seu conhecimento das perguntas da atividade, cole os trechos de código em um console do navegador para executá-los. Exemplos desta atividade também são fornecidos ao final da atividade para revisão.</p>
+</div>
+<ol>
+<li>Dado o seguinte trecho de código, a que <code>this.name</code> se referirá?<br/>
+<pre><code class="javascript">const person = {
+  name: "Maria",
+  greet: function () {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+   
+person.greet();</code></pre>
+<p>Qual você espera que seja a saída?</p>
+</li>
+<li>O que acontece quando o método de <code>person</code>é extraído? <pre><code class="javascript">const greetFunction = person.greet; // Extracting the method
+greetFunction(); // Calling the method</code></pre>
+<p>A que <code>this</code> está vinculado agora?</p>
+</li>
+<li>O exemplo anterior pode ser corrigido usando o <code>bind()</code> método para definir o valor de <code>this</code> explicitamente. <pre><code class="javascript">const greetFunction = person.greet.bind(person); // Binding 'this' to person:
+greetFunction();</code></pre>
+<p>Qual é a saída agora?</p>
+</li>
+<li>O que acontece quando você usa uma função arrow no <code>greet</code> método? <pre><code class="javascript">const person = {
+  name: "Maria",
+  greet: () =&gt; {
+    console.log(`Hello, my name is ${this.name}`); // Arrow function does not bind 'this' to the object
+  }
+};
+
+person.greet();</code></pre>
+<p>Qual é a saída agora?</p>
+</li>
+<li>No trecho de código a seguir, a que <code>this</code> se refere no manipulador de eventos? <pre><code class="javascript">const button = document.querySelector("button");
+button.addEventListener("click", function () {
+  console.log(this); // 'this' refers to the button element
+});</code></pre>
+</li>
+</ol>
+<div class="callout info">
+<p><strong>Exemplo</strong>: <a href="https://codepen.io/BYU-Idaho/pen/ByyVRPq" target="_blank">Método de objeto "this" do
+          JavaScript</a></p>
+</div>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://javascript.info/object-methods" target="_blank">Métodos de Objeto, "this"</a> –
+          javascript.info</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

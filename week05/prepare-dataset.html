@@ -1,0 +1,154 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S05 – Atividade de Aprendizagem: S05: Dataset</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span class="active"><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S05 – Atividade de Aprendizagem: S05: Dataset</h2>
+<h3>Visão Geral</h3>
+<p> A <code>dataset</code> propriedade HTML é uma maneira de acessar atributos de dados personalizados em elementos HTML. Isso permite o armazenamento de informações adicionais em um elemento sem afetar a estrutura HTML. A <code>dataset</code> propriedade é um objeto que contém todos os atributos de dados personalizados de um elemento, e cada atributo pode ser acessado usando a notação camelCase. Por exemplo, se um elemento tiver um atributo de dados de <code>data-user-id</code>, ele pode ser acessado usando <code>element.dataset.userId</code>.
+    </p>
+<h3>Preparação</h3>
+<p>
+<code>dataset</code> é uma propriedade em qualquer elemento HTML que permite acessar atributos <code>data-*</code> personalizados. Isso permite que os dados sejam passados para o JavaScript sem usar atributos <code>id</code> ou <code>class</code>, que podem se tornar extensos e complexos. O uso de <code>dataset</code> prepara você para usar diversos frameworks de interface do usuário que usam atributos de dados para vincular dados a elementos HTML, mantendo as coisas flexíveis e declarativas no HTML. </p>
+<p>Aqui está um exemplo de como usar a <code>dataset</code> propriedade:</p>
+<pre><code class="html">&lt;button data-user-id="42" data-role="admin"&gt;Edit&lt;/button&gt;</code></pre>
+<pre><code class="javascript">const element = document.querySelector('#myElement');
+element.dataset.userId = '12345';
+console.log(element.dataset.userId); // '12345'
+element.dataset.userId = '67890';
+console.log(element.dataset.userId); // '67890'
+element.dataset.userId = '12345';
+console.log(element.dataset.userId); // '12345'
+element.dataset.userId = '67890';
+console.log(element.dataset.userId); // '67890'
+</code></pre>
+<h3>Instruções da Atividade</h3>
+<p>Esta atividade ensinará como incorporar dados estruturados em elementos HTML usando atributos data-* e acessar esses dados usando JavaScript para construir comportamentos interativos e CSS para estilizar elementos com base nesses dados.</p>
+<h4 class="step">Configure Seu HTML</h4>
+<ol>
+<li>Crie um arquivo HTML chamado <strong>datasets.html</strong></li>
+<li>No arquivo HTML, crie a seguinte lista de itens: <pre><code class="html">&lt;ul id="items"&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+  &lt;li&gt;Carrot&lt;/li&gt;
+  &lt;li&gt;Blueberry&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</li>
+<li>Adicione os seguintes atributos data-* a cada item: <ul>
+<li><code>data-name</code>: O nome do item (ex.: "banana", "cenoura", "mirtilo").</li>
+<li><code>data-category</code>: A categoria do item (ex.: "fruta", "vegetal", "laticínio").</li>
+<li><code>data-color</code>: A cor do item (ex.: "amarelo", "laranja", "azul").</li>
+</ul>
+<details>
+<summary>Avalie Seu Conhecimento</summary>
+<pre><code class="html">&lt;ul id="items"&gt;
+  &lt;li data-name="banana" data-category="fruit" data-color="yellow"&gt;Banana&lt;/li&gt;
+  &lt;li data-name="carrot" data-category="vegetable" data-color="orange"&gt;Carrot&lt;/li&gt;
+  &lt;li data-name="blueberry" data-category="fruit" data-color="blue"&gt;Blueberry&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</details>
+</li>
+</ol>
+<h4 class="step">Interação com JavaScript</h4>
+<ol>
+<li>Em um arquivo de script ou tag <code>&lt;script&gt;</code>, selecione todos os itens da lista usando <code>document.querySelectorAll</code> e armazene-os em uma variável.</li>
+<li>Percorra cada item da lista em um laço e registre no log os valores dos atributos <code>data-name</code>, <code>data-category</code>, e <code>data-color</code> no console usando a <code>dataset</code> propriedade. <details>
+<summary>Avalie Seu Conhecimento</summary>
+<pre><code class="javascript">const items = document.querySelectorAll('#items li');
+items.forEach(item =&gt; {
+  console.log('Name:', item.dataset.name);
+  console.log('Category:', item.dataset.category);
+  console.log('Color:', item.dataset.color);
+});</code></pre>
+</details>
+</li>
+<li>Adicione um ouvinte de eventos para que, quando o usuário clicar em um produto, seus detalhes sejam exibidos abaixo da lista. <details>
+<summary>Avalie Seu Conhecimento</summary>
+<pre><code class="JavaScript">const items = document.querySelectorAll('#items li');
+const details = document.createElement('div');
+document.body.appendChild(details);
+items.forEach(item =&gt; {
+  item.addEventListener('click', () =&gt; {
+    details.innerHTML = `
+      &lt;h2&gt;Item Details&lt;/h2&gt;
+      &lt;p&gt;Name: ${item.dataset.name}&lt;/p&gt;
+      &lt;p&gt;Category: ${item.dataset.category}&lt;/p&gt;
+      &lt;p&gt;Color: ${item.dataset.color}&lt;/p&gt;
+    `;
+  });
+});</code></pre>
+</details>
+</li>
+</ol>
+<h4 class="step">Estilo</h4>
+<ol>
+<li>Estilize os itens de forma diferente com base em seus atributos data-category ou data-price.</li>
+</ol>
+<details>
+<summary>Avalie Seu Conhecimento</summary>
+<pre><code class="css">li[data-category="fruit"] {
+  background-color: lightyellow;
+}
+
+li[data-category="vegetable"] {
+  background-color: lightgreen;
+}
+
+li[data-category="dairy"] {
+  background-color: lightblue;
+}</code></pre>
+</details>
+<h4 class="step">Perguntas a Considerar</h4>
+<ul>
+<li>Quais são as vantagens de usar atributos data-* no HTML?</li>
+<li>Como os atributos data-* podem melhorar a acessibilidade de aplicações web?</li>
+<li>Em quais cenários você preferiria usar atributos data-* em vez de outros métodos de armazenamento de dados em HTML?</li>
+<li>Como você pode garantir que os dados armazenados em atributos data-* sejam válidos e seguros?</li>
+</ul>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/dataset" target="_blank">Element.dataset</a> – MDN</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

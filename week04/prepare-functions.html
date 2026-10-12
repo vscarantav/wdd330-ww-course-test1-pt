@@ -1,0 +1,167 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S04 – Atividade de Aprendizagem: Conceitos Avançados de Funções</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span class="active"><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S04 – Atividade de Aprendizagem: Conceitos Avançados de Funções</h2>
+<h3>Visão Geral</h3>
+<p>O motor do JavaScript oferece maneiras poderosas de resolver problemas usando funções para organizar o código e executar
+      tarefas
+      específicas. Você já sabe como definir e chamar funções, passar argumentos para elas e lidar com seus valores de retorno.
+      Nesta
+      atividade, você explorará como as funções do JavaScript são executadas, como elas interagem com a pilha de chamadas
+      e como podem ser usadas como objetos de primeira classe. </p>
+<h3>Preparação</h3>
+<p>Esta atividade de aprendizagem se concentra em uma compreensão mais profunda das funções, incluindo o contexto de execução, a
+      pilha de chamadas, callbacks e funções de ordem superior.</p>
+<h4>O que é um objeto de primeira classe?</h4>
+<p>No JavaScript, as funções são objetos de primeira classe. Isso significa que as funções podem ser tratadas como qualquer outro objeto
+      no JavaScript. Elas podem ser atribuídas a variáveis, passadas como argumentos para outras funções, retornadas de funções
+      e armazenadas em estruturas de dados como arrays e objetos. Isso permite um alto grau de flexibilidade e
+      reutilização no seu código.</p>
+<p>Como você sabe, as funções podem ser criadas usando declarações de <strong>função</strong>, expressões de <strong>função</strong>, e <strong>arrow functions</strong>. Cada um desses
+      métodos tem sua própria sintaxe e casos de uso, mas todos criam funções de primeira classe que podem ser usadas da mesma
+      forma. </p>
+<p>Aqui está um exemplo simples que demonstra a passagem de uma função como argumento:</p>
+<pre><code class="javascript">const fullNames = ["Aday Lovina", "Benstras Turing", "Grace Ojo"];
+const lastNames = fullNames.map(function getLastName(name) {
+  return name.split(" ").slice(-1)[0];
+});</code></pre>
+<ul>
+<li><code>map()</code> é uma função de ordem superior. Ela retorna um novo array.</li>
+<li><code>getLastName()</code> é a função passada como argumento para <code>map</code></li>
+<li><code>name</code> é o parâmetro da função <code>getLastName()</code></li>
+<li><code>name.split(" ")</code> divide a string em um array de palavras</li>
+<li><code>slice(-1)[0]</code> obtém o último elemento do array</li>
+<li><code>return</code> retorna o sobrenome</li>
+<li><code>lastNames</code> é o array de sobrenomes retornado pela <code>map()</code> função</li>
+</ul>
+<p><strong>Funções de Ordem Superior</strong> são funções que podem receber outras funções como argumentos ou retornar
+      funções como seu resultado. Isso permite um código mais flexível e reutilizável, bem como a capacidade de criar
+      funcionalidades mais complexas combinando funções simples. Elas são uma parte fundamental e principal da programação funcional e
+      incluem funções que você já esteve usando, incluindo:</p>
+<ul>
+<li><code>map()</code> – cria um novo array com os resultados da chamada de uma função fornecida em cada
+        elemento do array chamador.</li>
+<li><code>filter()</code> – cria um novo array com todos os elementos que passam no teste implementado pela
+        função fornecida.</li>
+<li><code>reduce()</code> – executa uma função reducer (que você fornece) em cada elemento do array,
+        resultando em um único valor de saída.</li>
+<li><code>forEach()</code> – executa uma função fornecida uma vez para cada elemento do array.</li>
+</ul>
+<h4>Contexto de Execução</h4>
+<p>O <strong>Contexto de Execução</strong> é o ambiente no qual uma função é executada. Ele inclui o escopo
+      da função, o valor de 'this' e quaisquer variáveis que estejam definidas dentro da função. Entender o
+      contexto de execução é crucial para compreender como as funções funcionam no JavaScript.</p>
+<p>O exemplo a seguir demonstra como os contextos são criados e como as cadeias de escopo determinam qual variável pode ser
+      acessada em diferentes níveis. Você deve executar este código no console para verificar o conceito.</p>
+<pre><code class="javascript">const globalVariable = "I'm Global";
+
+function outerFunction() {
+  const outerVariable = "I'm Outer";  
+
+  function innerFunction() {
+    const innerVariable = "I'm Inner";
+    console.log(globalVariable); // I'm Global
+    console.log(outerVariable); // I'm Outer
+    console.log(innerVariable); // I'm Inner
+  }
+
+  innerFunction();
+  console.log(innerVariable); // ReferenceError: innerVariable is not defined
+  console.log(this); // in this scope, refers to the global object (the window in browsers)
+}
+outerFunction();</code></pre>
+<p>Neste exemplo, a <code>innerFunction()</code> tem acesso às variáveis definidas em seu próprio escopo
+      (<code>innerVariable</code>), bem como às variáveis definidas em seu escopo pai (<code>outerVariable</code>)
+      e no escopo global (<code>globalVariable</code>). No entanto, a <code>outerFunction()</code> não tem
+      acesso à <code>innerVariable</code>, porque ela está definida em um escopo diferente.</p>
+<p>No exemplo, a <code>this</code> palavra-chave refere-se ao objeto global (o window nos navegadores) porque <code>outerFunction()</code> é chamada no contexto global. Se você chamasse <code>innerFunction()</code> diretamente, <code>this</code> se referiria à própria função. </p>
+<h5>Hoisting</h5>
+<p><strong>Hoisting</strong> é um mecanismo do JavaScript no qual variáveis e declarações de função (mas não arrow
+      functions) são movidas para o topo
+      do seu escopo contido durante a fase de compilação ou de "Criação". Ele também configura a <code>this</code> associação.
+      Hoisting é um mecanismo que afeta o que está disponível e quando, antes que qualquer código seja realmente executado.</p>
+<h4>Pilhas de Chamada</h4>
+<p><strong>Pilhas de Chamada</strong> no JavaScript é uma estrutura de dados que acompanha as chamadas de função. Quando uma
+      função é chamada, ela é adicionada à pilha e, quando retorna, é removida da pilha. Isso permite que o
+      JavaScript acompanhe onde está no código e quais funções estão sendo executadas no momento.</p>
+<p>Aqui está um exemplo que você pode executar no console: </p>
+<pre><code class="javascript">function firstFunction() {
+  console.log("First Function");
+  secondFunction();
+  console.log("Back to First Function");
+}
+
+function secondFunction() {
+  console.log("Second Function");
+  thirdFunction();
+  console.log("Back to Second Function");
+}
+
+function thirdFunction() {
+  console.log("Third Function");
+  // Uncomment the next line to see the stack overflow error (RangeError)
+  // thirdFunction(); 
+  console.log("Back to Third Function");
+}
+
+firstFunction();</code></pre>
+<p>Neste exemplo, quando <code>firstFunction()</code> é chamada, ela se adiciona à pilha de chamadas. Em seguida, ela chama <code>secondFunction()</code>, que se adiciona à pilha. Por fim, ela chama <code>thirdFunction()</code>,
+      que se adiciona à pilha. Quando <code>thirdFunction()</code> retorna, ela é removida da pilha e o
+      controle volta para <code>secondFunction()</code>, e depois de volta para <code>firstFunction()</code>.
+    </p>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/First-class_function" target="_blank">Função de
+            Primeira Classe</a> – Glossário MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank">O Objeto Função</a> – MDN </li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack" target="_blank">Pilha de Chamadas</a> – Glossário MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Execution_context" target="_blank">Contexto de
+            Execução</a> – Glossário MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Higher-order_function" target="_blank">Função de Ordem Superior</a> – Glossário MDN</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

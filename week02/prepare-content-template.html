@@ -1,0 +1,89 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S02 – Atividade de Aprendizagem: Elemento Modelo</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span class="active"><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S02 – Atividade de Aprendizagem: Elemento Modelo</h2>
+<h3>Visão Geral</h3>
+<p>Às vezes você vai querer construir conteúdo, mas não renderizar esse conteúdo até mais tarde. Por exemplo, você pode querer construir uma lista de itens, mas não renderizá-los até que o usuário clique em um botão. O <strong>elemento &lt;template&gt; do HTML</strong> permite fazer exatamente isso.</p>
+<h3>Preparação</h3>
+<p>O HTML <code>&lt;template&gt;</code> elemento não é renderizado pelo navegador até ser evocado por script. O <code>&lt;template&gt;</code> elemento é útil para marcação HTML repetida contendo registros ou outros dados que são usados repetidamente. </p>
+<p>Aqui está um exemplo de elemento modelo HTML:</p>
+<pre><code class="HTML">&lt;template id="product-card"&gt;
+  &lt;section class="card"&gt;
+    &lt;h2&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;img class="tn" src="" alt="" loading="lazy" width="100" height="200"&gt;
+  &lt;/section&gt;
+&lt;/template&gt;</code></pre>
+<p>No exemplo acima, o elemento modelo é usado para criar um cartão de produto. O <code>template</code> contém um <code>section</code> elemento com um <code>class</code> de "card" e inclui um elemento h2 para o nome do produto, dois <code>p</code> elementos para a descrição e preço do produto, etc., e um <code>img</code> elemento para a imagem do produto. </p>
+<p>O <code>template</code> elemento não é renderizado até ser clonado e inserido no DOM.</p>
+<p>Aqui está um exemplo de como clonar e inserir o modelo no DOM:</p>
+<pre><code class="javascript">const template = document.getElementById("product-card");
+const productList = document.getElementById("product-list");
+    
+products.forEach((product) =&gt; {
+  const clone = template.content.cloneNode(true);
+  const [title, desc, price, img] = clone.querySelectorAll("h2, p, p, img");
+    
+  title.textContent = product.name;
+  desc.textContent = product.description;
+  price.textContent = product.price;
+  img.src = product.image;
+  img.alt = product.name;
+    
+  productList.appendChild(clone);
+});</code></pre>
+<p>No exemplo acima, o modelo é clonado e o conteúdo é preenchido com dados do <code>products</code> array. O modelo clonado é então adicionado ao final de um <code>product-list</code> elemento. Observe o uso do <code>.cloneNode()</code> método e a seleção dos elementos do modelo como <code>const</code> variáveis. </p>
+<div class="callout reference">
+<p>Exemplo no CodePen: <a href="https://codepen.io/BYU-Idaho/pen/wBawwdd" target="_blank">Elemento Modelo</a></p>
+</div>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank">O
+            Elemento Modelo de Conteúdo</a> – MDN</li>
+<li><a href="https://www.w3schools.com/tags/tag_template.asp" target="_blank">Tag modelo HTML</a> – w3schools</li>
+</ul>
+</div>
+<hr/>
+<nav><span><a href="index.html">Voltar</a></span></nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

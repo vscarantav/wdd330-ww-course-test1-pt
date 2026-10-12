@@ -1,0 +1,162 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S05 | Tarefa: Autenticação</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main>
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span class="active"><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S05 Tarefa: Autenticação</h2>
+<h3>Visão Geral</h3>
+<p> Agora que os usuários podem fazer pedidos, você precisa criar uma maneira para a
+      equipe revisar e processar esses pedidos. Nesta tarefa, você adicionará uma simples <strong>administrativa</strong> parte do site. Esta parte do site
+      deve ser acessada apenas por usuários autenticados. </p>
+<h3>Instruções</h3>
+<h3>Requisitos Principais</h3>
+<h4 class="step">Início</h4>
+<ol>
+<li>Visite a cópia do quadro do Trello da equipe para o projeto.</li>
+<li>Adicione-se à tarefa "Autenticação".</li>
+<li>Mova a tarefa para a <strong>'Doing'</strong> lista.</li>
+<li>Leia os detalhes do cartão.</li>
+<li><code>Pull</code> quaisquer alterações do GitHub antes de prosseguir.</li>
+<li>Crie uma nova branch chamada <code><em>initials</em>-authentication</code>.
+      </li>
+</ol>
+<h4 class="step">Construir Página de Login do Administrador</h4>
+<ol>
+<li>Crie um novo diretório no diretório src chamado <code>admin</code>.</li>
+<li>Adicione um <code>index.html</code> a essa pasta.</li>
+<li>Adicione o HTML básico com o cabeçalho e o rodapé do site.</li>
+<li>Crie um <code>admin.js</code> módulo.</li>
+<li>Adicione uma classe e dois métodos iniciais: <ol>
+<li><code>login</code></li>
+<li><code>showLogin</code></li>
+</ol>
+</li>
+<li>Termine de escrever o <code>showLogin</code> método. <ol>
+<li>Construa um formulário de login no <code>main</code> elemento da página.</li>
+<li>O formulário deve incluir os seguintes elementos de formulário: <ol>
+<li>e-mail,</li>
+<li>senha e</li>
+<li>um botão de envio.</li>
+</ol>
+</li>
+<li>Quando o botão for clicado, ele deve chamar o <code>login</code> método.</li>
+</ol>
+</li>
+</ol>
+<h4 class="step">Fazendo login</h4>
+<p>Termine o <code>login</code> método. O servidor com o qual você precisa se autenticar para
+      recuperar as informações do pedido tem um endpoint de login neste endereço:</p>
+<pre><code class="lang-js">http://server-nodejs.cit.byui.edu:3000/login</code></pre>
+<p> Faça uma <code>POST</code> requisição para esse endereço com o e-mail e a senha que o
+      usuário fornece no formulário como o corpo. Apenas para manter as coisas consistentes, vamos criar uma
+      função em <code>ExternalServices</code> chamada <code>loginRequest(creds)</code> que fará a requisição real para o servidor. </p>
+<pre><code class="js">{ email: "user1@email.com" , password: "user1" }</code></pre>
+<p> Se a requisição for bem-sucedida (e-mail e senha correspondem a um usuário no banco de dados), o
+      servidor retornará um token. Este token deve ser fornecido com cada requisição adicional que você fizer
+      ao servidor. Salve-o como uma propriedade da <code>Admin</code> classe. </p>
+<div class="callout info">
+<p> Se você se cansar de digitar <code>user1@email.com</code> você pode adicionar <code>value="user1@email.com"</code> ao seu
+        elemento de entrada de e-mail e ele se lembrará disso. Lembre-se apenas de removê-lo quando terminar os testes! </p>
+</div>
+<details>
+<summary>Exemplo de Código para <code>Admin.login</code></summary>
+<pre><code class="js">constructor(outputSelector) {
+  this.mainElement = document.querySelector(outputSelector);
+  this.token = null;
+  this.services = new ExternalServices();
+}
+async login(creds, next) {
+  // Login method with a callback: next which makes it more flexible given that
+  // there could be many different things the user wants to do after logging in.
+  // This allows us that flexibility without having to write a bunch of login methods
+  try {
+    this.token = await this.services.loginRequest(creds);
+    next();
+  }
+  catch(err) {
+    // remember this from before?
+    alertMessage(err.message.message);
+  }
+}</code></pre>
+</details>
+<h4 class="step">Obtendo os pedidos</h4>
+<p>Os pedidos que você está procurando podem ser encontrados em:</p>
+<pre><code class="js">https://wdd330-backend-osp8.onrender.com:3000/orders</code></pre>
+<div class="callout info">
+<p> Se você fizer uma <code>GET</code> requisição para esse endereço, no entanto, você receberá um erro. Este é um
+        endpoint protegido. Envie o token junto com a requisição para que o servidor saiba que você é confiável. Tokens
+        como este são geralmente incluídos no <code>headers</code> da requisição. </p>
+</div>
+<p> Adicione um cabeçalho para a requisição chamado <code>Authorization</code> que incluirá o token.
+      Se você olhar em <code>ExternalServices-&gt;checkout</code> há um exemplo de uso de um
+      cabeçalho personalizado. Se você decidir copiar/colar esse exemplo, lembre-se de que você deseja fazer um GET, o que significa
+      que você não deve ter uma <code>body</code> propriedade. </p>
+<p> Você provavelmente vai querer criar um novo método em <code>ExternalServices</code> para obter os
+      pedidos do servidor, e outro em <code>Admin</code> para iniciar a requisição após
+      o login ter sido concluído com sucesso. A linha que você vai querer adicionar à parte <code>headers</code> das suas opções deve ser parecida com esta: </p>
+<pre><code class="lang-js">headers: {
+  'Authorization': `Bearer ${token}`
+}</code></pre>
+<h3>Desafio Adicional</h3>
+<p> Escreva o código necessário para exibir a lista de pedidos ao usuário. </p>
+<div class="callout info">
+<p> Neste ponto do curso, é menos prescritivo. Mantenha a usabilidade em mente e trabalhe para
+        deixá-lo com um bom visual. Não exiba todas as informações do pedido. Quais informações
+        um usuário típico esperaria? </p>
+</div>
+<h3>Exemplo de Solução</h3>
+<p>Como parte desta tarefa, você pode analisar uma solução e compará-la com a sua abordagem.</p>
+<div class="callout warning"> Exemplo: <a href="https://github.com/matkat99/sleepoutside/tree/vite-team8/src" rel="noreferrer" target="_blank">Solução</a>.
+    </div>
+<h3>Faça um pull request.</h3>
+<p>
+<ol>
+<li>Conclua o máximo que puder desta atividade.</li>
+<li>Revise a solução de exemplo.</li>
+<li>Faça o seu código funcionar.</li>
+<li>Execute o linter e formate seu código antes de fazer o commit.</li>
+<li>Faça o commit e envie as alterações para o repositório do projeto da equipe.</li>
+<li>Envie um pull request para esta branch.</li>
+<li>Revise o pull request em equipe.</li>
+<li>Feche a requisição e mescle a branch de volta para a <code>Main</code>.</li>
+<li>Mova o cartão de tarefa do Trello para a <code>"Done"</code> lista.</li>
+</ol>
+</p>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

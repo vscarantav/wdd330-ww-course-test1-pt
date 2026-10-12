@@ -1,0 +1,167 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S01 | Atividade Individual</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav><span><a href="../">Início</a></span>
+<span class="active"><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>Atividade Individual S01: Adicionar Item ao Carrinho</h2>
+<h3>Visão Geral</h3>
+<p> O curso usará um <strong>Trello</strong> quadro para gerenciar o projeto da equipe. Esta
+      atividade pressupõe que:</p>
+<ol>
+<li>você já criou uma conta no Trello a partir da <a href="https://byui-cse.github.io/wdd330-ww-course/intro/setup-course-tools.html">atividade de configuração
+          das ferramentas do curso</a> atividade </li>
+<li>sua equipe fez uma cópia de equipe do <strong>SleepOutside</strong> quadro do projeto do
+        Trello. <br/><strong>Este será o seu quadro compartilhado para trabalhar ao longo do bloco</strong>
+</li>
+</ol>
+<div class="callout info">
+<p> Há algumas tarefas marcadas como <code>"Team Activity"</code> e outras
+        que não estão. A cada semana, a equipe deve concluir a atividade de equipe apropriada junta até
+        quinta-feira. Cada membro da equipe concluirá dois (2) cartões adicionais do projeto a cada semana. Estes devem ser
+        feitos individualmente o máximo possível, mas lembre-se de que você tem uma equipe para ajudá-lo se você
+        ficar preso em uma tarefa específica. </p>
+</div>
+<h3>Instruções da Atividade</h3>
+<p>Cada membro da equipe deve trabalhar neste mesmo cartão do Trello apenas esta semana para praticar o
+      fluxo de trabalho.</p>
+<p>A atividade usará a <code>"Add item to cart broken"</code> tarefa.</p>
+<div class="callout info">
+<p> Esta é em grande parte uma tarefa de depuração e solução de problemas, mas ajudará a se familiarizar com
+        o código fornecido. </p>
+</div>
+<h4 class="step">Trello</h4>
+<ol>
+<li>Faça login no trello.com.</li>
+<li>Abra a cópia da sua equipe do quadro do Trello SleepOutside.</li>
+<li>Adicione a si mesmo à <code>"Add item to cart broken"</code> tarefa.</li>
+<li>Mova o cartão para a <code>"Doing"</code> lista no Trello se o cartão ainda não tiver sido movido por um dos membros da sua
+        equipe.</li>
+<li>Leia os detalhes do cartão.</li>
+</ol>
+<h4 class="step">Orientação e Revisão de Código</h4>
+<ol>
+<li>No VS Code, abra o repositório do projeto no GitHub da sua equipe que sua equipe configurou na <a href="team.html"> atividade de equipe</a> desta semana. <div class="callout info">
+<p> A maior parte do trabalho que você fará durante a primeira metade do
+            curso será neste repositório compartilhado. </p>
+</div>
+</li>
+<li><strong>Faça pull de</strong> quaisquer alterações do repositório de projeto da sua equipe antes de prosseguir.</li>
+<li>Crie uma <strong>nova branch</strong> chamada <code><em>yourinitials</em>--individual1</code>.
+        <figure>
+<img alt="VS Code Criar Nova Branch" src="../images/vscode-create-new-branch.png" width="550"/>
+<figcaption>Criando uma Nova Branch</figcaption>
+</figure>
+<div class="callout warning">
+<p> Certifique-se de usar suas próprias iniciais no <code><em>yourinitials</em></code> segmento do nome da branch. </p>
+</div>
+</li>
+<li>Examine o código para se orientar com a estrutura do projeto.</li>
+<li>Inicie o servidor de desenvolvimento no navegador. <pre><code>npm run start</code></pre>
+</li>
+<li>Em seu navegador, tente adicionar um item ao carrinho. Observe que nada parece acontecer quando você olha para o
+        carrinho.</li>
+<li>Abra as ferramentas de desenvolvedor do navegador e verifique se há erros.</li>
+<li>Vá para o painel <strong>aplicação</strong> na janela das ferramentas de desenvolvedor (DevTools) e clique no menu suspenso <strong>Armazenamento local</strong> na área de armazenamento. Observe o conteúdo nos pares Chave—Valor. <figure>
+<img alt="Armazenamento local no DevTools" src="../images/devtools-application-panel-ls.png" width="450"/>
+<figcaption>Painel de Aplicação – Armazenamento Local no DevTools</figcaption>
+</figure>
+<div class="callout info">
+<p>O código armazena o conteúdo do carrinho dentro do <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank">localStorage</a>.</p>
+</div>
+</li>
+<li>Com este painel aberto, tente adicionar outro item ao carrinho de compras na aplicação.<br/> Observe o que acontece com o localStorage. <details>
+<summary>Dica</summary>
+<p>Apenas o objeto mais recente é gravado no localStorage, sobrescrevendo a adição anterior ao carrinho.</p>
+</details>
+</li>
+</ol>
+<h4 class="step">Depurar</h4>
+<ol>
+<li>Depure o código para descobrir o que está errado e corrigi-lo. <details>
+<summary>Dicas</summary>
+<ul>
+<li>Preste muita atenção ao erro no console, mas esteja ciente de que o local onde o erro
+              é capturado nem sempre é onde o problema está realmente localizado.</li>
+<li>Defina pontos de interrupção para parar a execução do código e inspecioná-lo.<br/> No DevTools <strong>Sources</strong> painel -&gt; clique no arquivo JS de origem -&gt; clique no número da linha onde deseja definir o ponto de interrupção -&gt; recarregue a página para invocar o ponto de interrupção. </li>
+</ul>
+</details>
+</li>
+<li>À medida que você explora o código, você encontrará a função <code>addProductToCart</code>. Preste atenção ao que ela está fazendo. O que faz <code>setLocalStorage</code>? <details>
+<summary>Dica</summary>
+<p>O que é necessário para armazenar múltiplos objetos no localStorage como dados?</p>
+</details>
+</li>
+</ol>
+<h4 class="step">Exemplo de Solução</h4>
+<p>A solução de exemplo é fornecida como referência depois de você tentar realizar a atividade. NÃO abra o exemplo de solução até ter trabalhado nesta atividade. Use-o para ajudar a concluir seu próprio código. </p>
+<details>
+<summary>Exemplo de Solução</summary> A solução de exemplo pode ser encontrada no diretório src: <a href="https://github.com/byui-cse/wdd330-sleepoutside/tree/week1" rel="noreferrer" target="_blank">Repositório do Sleep Outside do WDD 330 <strong>week1</strong> branch</a>.
+    </details>
+<h4 class="step">Pull Request</h4>
+<ol>
+<li>No VS Code, complete as correções de código para corrigir a operação do carrinho.</li>
+<li>Teste se o carrinho está funcionando localmente.</li>
+<li>Faça o lint e a formatação do seu código. <pre><code>&gt;npm run lint</code></pre>
+<pre><code>&gt;npm run format</code></pre>
+</li>
+<li>Faça o commit e envie suas alterações para o GitHub.</li>
+<li>Envie um <strong>pull request</strong> para este branch. <div class="callout info">
+<p> Normalmente, seu pull request seria revisado por outro membro da equipe e mesclado de volta ao branch principal; neste caso, no entanto, há mais de um branch que resolveu o mesmo problema. Mescle apenas o <strong>único</strong> branch de volta para o <code>main</code> branch. </p>
+</div>
+</li>
+<li>Discuta com sua equipe qual branch você deseja manter e peça para um membro da equipe mesclar esse pull request. As outras requisições podem ser fechadas sem mesclar.</li>
+<li>Não há problema em <strong>Excluir o branch</strong> que você criou em seu repositório local.</li>
+<li>Um membro da equipe deve mover o cartão <strong>Add Item to Cart Broken</strong> do Trello para a coluna <strong>"Done"</strong>. </li>
+</ol>
+<h4 class="step">Revise o Processo de Desenvolvimento e Implantação</h4>
+<p>A partir de agora, você deve seguir este processo em cada uma das tarefas do Trello que concluir ao longo do curso. Você pode querer copiar ou consultar essas etapas de tarefas para referência futura até que se torne um hábito.</p>
+<ol>
+<li> Escolha um cartão do Trello, atribua-o a você mesmo e mova-o para "Doing". </li>
+<li>Puxe quaisquer alterações do projeto da sua equipe.</li>
+<li>Crie um branch.</li>
+<li>Conclua o trabalho.</li>
+<li>Faça o lint e a formatação do código.</li>
+<li>Faça o commit e envie.</li>
+<li>Crie um pull request para o seu novo branch.</li>
+<li>Avise sua equipe que há um pull request aguardando.</li>
+<li> Outro membro da equipe deve revisar o pull request no GitHub e, se tudo estiver certo, mesclar a requisição.</li>
+<li>Exclua o branch antigo.</li>
+<li>Mova o cartão do Trello para a lista "Done".</li>
+</ol>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

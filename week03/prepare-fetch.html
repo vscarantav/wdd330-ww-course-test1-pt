@@ -1,0 +1,95 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S03 – Atividade de Aprendizagem: S03: Revisão: A Fetch API</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span class="active"><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S03 – Atividade de Aprendizagem: S03: Revisão: A Fetch API</h2>
+<h3>Visão Geral</h3>
+<p>Uma chave no desenvolvimento web moderno é fazer requisições HTTP assíncronas para se comunicar com servidores sem forçar
+      uma atualização completa da página. Esta atividade ajudará você a revisar como usar a Fetch API para fazer essas requisições.</p>
+<h3>Preparação</h3>
+<p>A <strong>fetch api</strong> é uma maneira moderna de fazer requisições HTTP. É uma Web API nativa (incorporada) suportada
+      pela maioria dos navegadores modernos e é uma ótima maneira de começar a fazer requisições para APIs. A fetch API retorna uma
+      promise que se resolve na resposta da requisição. Essa resposta pode então ser convertida para JSON ou texto,
+      dependendo do tipo de dados que você espera receber de volta do servidor.</p>
+<p>Se necessário, revise o seguinte recurso do WDD 231:</p>
+<ul>
+<li><a href="https://byui-cse.github.io/wdd231-ww-course/week02/prepare-fetch.html" target="_blank">A Fetch
+          API</a></li>
+</ul>
+<p>Aqui está um exemplo simples de como usar a fetch API:</p>
+<pre><code class="javascript">const url = 'https://pokeapi.co/api/v2/pokemon/1';
+const options = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+      
+  }
+};
+fetch(url, options)
+  .then(response =&gt; {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data =&gt; {
+    console.log('first: ', data);
+    console.log('second: ', data.name);
+  })
+  .catch(error =&gt; {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+</code></pre>
+<h3>Instruções da Atividade</h3>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API</a> –
+          MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options" target="_blank">Fetch() Fornecendo Opções de Requisição</a> – MDN</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Direitos autorais © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

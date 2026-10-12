@@ -1,0 +1,177 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S04 – Atividade de Aprendizagem: CSS Aninhado</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span class="active"><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S04 – Atividade de Aprendizagem: CSS Aninhado</h2>
+<h3>Visão Geral</h3>
+<p>O CSS aninhado moderno é uma forma de escrever CSS mais legível e de fácil manutenção, especialmente para grandes projetos. Ele permite aninhar regras CSS dentro de outras regras, o que pode ajudar a manter seus estilos organizados e potencialmente reduzir a quantidade de dados CSS que precisam ser baixados.</p>
+<p>A estrutura de arquivos também é importante ao usar CSS aninhado. É comum ter um arquivo CSS principal que importa outros arquivos CSS, os quais podem ser organizados por componentes ou funcionalidades. Isso permite que você mantenha seus estilos modulares e mais fáceis de gerenciar.</p>
+<p>Nesta atividade, você aprenderá a usar CSS aninhado.</p>
+<h3>Preparação</h3>
+<p>Aqui está um exemplo de CSS aninhado:</p>
+<pre><code class="CSS">.container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &amp;:hover {
+      background-color: #0056b3;
+    }
+
+    &amp;:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgb(0 123 255 / 50%);
+    }
+  }
+}</code></pre>
+<p>No exemplo acima, a <code>.container</code> classe contém regras aninhadas para <code>h1</code>,
+      <code>p</code>,
+      e <code>button</code> elementos. O botão também possui regras aninhadas para os <code>:hover</code> e <code>:focus</code> estados. </p>
+<h3>Instruções da Atividade</h3>
+<p>Converta este CSS tradicional em um formato CSS aninhado moderno.</p>
+<pre><code class="CSS">footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+ 
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: yellow;
+} 
+  
+footer p {
+  font-size: smaller;
+}</code></pre>
+<details>
+<summary>Avalie Seu Conhecimento</summary>
+<pre><code class="javascript">footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &amp; a {
+    color: white;
+    text-decoration: none;
+
+    &amp;:hover {
+    text-decoration: underline;
+    color: yellow;
+    } 
+  }
+
+  &amp; p { 
+    font-size: smaller;
+  }
+}</code></pre>
+<div class="callout info">
+<p>Neste exemplo, seletores filhos como a {} ou p {} são tratados automaticamente como seletores aninhados em relação ao pai e, portanto, o &amp; que os precede pode ser omitido.</p>
+</div>
+</details>
+<p> As media queries podem ser aninhadas diretamente dentro de uma regra de estilo para aplicar estilos a esse seletor pai em condições específicas. Por exemplo, se você quisesse aplicar um estilo diferente ao rodapé quando a largura da tela for menor que 600px, você poderia fazer assim:</p>
+<pre><code class="CSS">footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  @media (max-width: 600px) {
+    background-color: #444;
+    padding: 10px;
+    font-size: smaller;
+  }
+  &amp; a {
+    color: white;
+    text-decoration: none;
+    &amp;:hover {
+      text-decoration: underline;
+      color: yellow;
+    }
+  }
+  &amp; p {
+    font-size: smaller;
+  }
+}</code></pre>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting" target="_blank">Aninhamento de CSS</a> –
+          MDN</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

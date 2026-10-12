@@ -1,0 +1,138 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S06 – Projeto: Final S06: Início – Ferramenta de Compilação Vite</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span class="active"><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S06 – Projeto: Final S06: Início – Ferramenta de Compilação Vite</h2>
+<h3>Visão Geral</h3>
+<p>O Vite é uma ferramenta de compilação para auxiliar no desenvolvimento de aplicações web.
+      O Vite foi a ferramenta usada no projeto de aprendizagem em equipe SleepOutside. Este guia ajudará você a começar a construir
+      sua aplicação web final e individual usando o Vite.</p>
+<h3>Guia Passo a Passo para Começar</h3>
+<h4 class="step">Node.js</h4>
+<p><strong>Node.js</strong> é necessário para usar a ferramenta de compilação Vite.</p>
+<ul class="check">
+<li>Verifique sua versão do Node.js executando o seguinte comando no seu terminal: <pre><code class="cli">node -v</code></pre>O número da versão deve ser 18+.<br/> Se necessário, você pode atualizar o Node.js executando o seguinte comando no seu terminal: <pre><code class="cli">npm install -g node@latest</code></pre>
+</li>
+</ul>
+<div class="callout info">
+<p>Se você não tiver o Node.js instalado corretamente, poderá baixá-lo no site oficial: <a href="https://nodejs.org/en/download/">Downloads do Node.js</a> </p>
+</div>
+<h4 class="step">Inicializar o Projeto</h4>
+<ol>
+<li>Inicialize o projeto usando o vite digitando o seguinte comando no seu terminal: <pre><code class="cli">npm create vite@latest</code></pre>Isso criará um novo projeto Vite no diretório
+        atual. </li>
+<li>Serão solicitadas as seguintes informações: <ul class="check">
+<li>Confirmação para instalar o pacote Vite. Você verá uma mensagem semelhante à seguinte: <pre><code class="cli">Need to install the following packages:
+  create-vite@x.x.x
+  Ok to proceed? (y) </code></pre>Pressione a sua <strong>Enter</strong> tecla ou digite <strong>y</strong> e pressione <strong>Enter</strong>.
+            <br/><em>O valor entre parênteses (y) é a entrada padrão.</em>
+</li>
+<li>Será solicitado o <strong>Nome do Projeto:</strong>. Digite um nome que seja semântico e conciso.
+            Este será o nome da pasta que será criada para o seu projeto.</li>
+<li>Em seguida, <strong>Selecione um framework:</strong> que deseja usar. Para este projeto, selecione <strong>Vanilla</strong>.
+          </li>
+<li>Em seguida, <strong>Selecione uma variante:</strong> que deseja usar. Para este projeto, selecione <strong>JavaScript</strong>.
+          </li>
+<li>Uma mensagem aparecerá dizendo algo como <pre><code class="cli">Scaffolding project in </code></pre> seguido pela localização (pasta raiz e
+            pasta do nome do projeto) que você selecionou. <pre><code class="cli">Done. Now run:</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h4 class="step">Instalar Dependências e Iniciar o Servidor de Desenvolvimento</h4>
+<ol>
+<li><strong>Mude de diretório</strong> para a pasta do projeto que você acabou de criar digitando o seguinte comando no
+        seu terminal: <pre><code class="cli">cd &lt;project-name&gt;</code></pre> onde &lt;project-name&gt; é o nome da pasta
+        que você
+        criou na etapa anterior.<br/><em>Não inclua a sintaxe &lt; e &gt; no nome do seu projeto.</em>
+</li>
+<li>Instale as <strong>dependências</strong> digitando o seguinte comando no seu terminal: <pre><code class="cli">npm install</code></pre>
+</li>
+<li>Inicie o <strong>servidor de desenvolvimento</strong> digitando o seguinte comando no seu terminal: <pre><code class="cli">npm run dev</code></pre>
+</li>
+<li>Sua aplicação Vite será iniciada e um servidor de desenvolvimento local (localhost) será aberto no seu navegador padrão.
+        Navegue até a URL do localhost fornecida. <figure>
+<img alt="Captura de tela da inicialização do servidor de desenvolvimento do Vite" loading="lazy" src="../images/vite-dev-server-start.png" width="600"/>
+<figcaption>Captura de tela de um exemplo do servidor de desenvolvimento Vite no navegador</figcaption>
+</figure>
+</li>
+<li>No seu terminal, feche o servidor de desenvolvimento pressionando <strong>Ctrl + c</strong> (PC) ou <strong>Command +
+          c</strong> (Mac) no seu teclado. Será solicitado que você confirme se deseja encerrar a tarefa em lote.
+        Digite <strong>y</strong> e pressione <strong>Enter</strong>.
+        <p><em>Isso interromperá o servidor de desenvolvimento e o diretório atual do projeto será exibido no prompt.</em>
+</p>
+</li>
+</ol>
+<h4 class="step">Abrir o Projeto no VS Code</h4>
+<ol>
+<li>Abra o projeto no Visual Studio Code (VS Code) digitando o seguinte comando no seu terminal: <pre><code class="cli">code .</code></pre>
+<p><em>O ponto (.) no final do comando é importante. Ele diz ao VS Code para abrir o diretório
+            atual.</em></p>
+<div class="callout info">
+<p>Você também pode apenas iniciar o VS Code e abrir a pasta do projeto diretamente.</p>
+</div>
+</li>
+<li>No VS Code, você verá uma estrutura de pastas semelhante à seguinte: <figure>
+<img alt="Captura de tela da estrutura de pastas do projeto Vite" loading="lazy" src="../images/vite-filefolder-structure.png" width="500"/>
+<figcaption>Captura de tela de um exemplo da estrutura de pastas do projeto Vite no VS Code</figcaption>
+</figure>
+</li>
+</ol>
+<h4 class="step">Gere a compilação da aplicação para produção</h4>
+<ol>
+<li>No terminal do VS Code ou no terminal de sua escolha, execute o comando de compilação para abrir o <strong>index.html</strong> arquivo na <strong>src</strong> pasta. Você verá uma
+        página HTML simples com o logotipo do Vite e um link para a documentação do Vite. <figure>
+<img alt="Captura de tela de exemplo do npm run build" loading="lazy" src="../images/vite-run-build-example.png" width="500"/>
+<figcaption>Captura de tela de um exemplo do arquivo index.html do Vite no VS Code</figcaption>
+</figure>
+</li>
+<li>Uma nova pasta chamada <strong>dist</strong> é adicionada à pasta do seu projeto.</li>
+</ol>
+<p>É isso! Agora você está pronto para começar a construir sua aplicação web.</p>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://vitejs.dev/guide/">Documentação do Vite</a></li>
+<li><a href="https://vitejs.dev/guide/features.html">Funcionalidades do Vite</a></li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+</body>
+</html>

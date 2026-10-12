@@ -1,0 +1,96 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S01 – Atividade de Aprendizagem: Fluxo de Trabalho</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span class="active"><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S01 – Atividade de Aprendizagem: Fluxo de Trabalho</h2>
+<h3>Visão Geral</h3>
+<p>Um fluxo de trabalho moderno de desenvolvimento web front-end otimiza como sites e aplicações são construídos e gerenciados. Mesmo
+      para um projeto de porte médio, é provável que você tenha que lidar com inúmeros arquivos JavaScript ou TypeScript, várias folhas de estilo CSS
+      e uma variedade de recursos, como ícones, fontes e imagens.</p>
+<p> Muitos projetos agora se baseiam em arquiteturas baseadas em componentes usando frameworks como React, Angular ou Vue.js. Esta
+      aula não usará nenhum framework. No entanto, o conceito de arquitetura de projeto é importante. Nesta aula, você
+      será apresentado ao <strong>Vite</strong> (pronuncia-se como "veet"), um empacotador de módulos JavaScript, que agrupa
+      arquivos para um desempenho ideal e lida com tarefas de projetos de desenvolvimento web. </p>
+<h3>Preparação</h3>
+<p> A seguir está uma lista simplificada, mas prática, de tarefas que devem ocorrer toda vez que algo muda em um projeto de desenvolvimento
+      de aplicação web. Isso reflete o fluxo de trabalho típico para manter a qualidade do código, a funcionalidade
+      e a consistência da implantação. </p>
+<ul class="check">
+<li>Atualizar a documentação, como o README ou outros documentos específicos de funcionalidades aplicáveis</li>
+<li>Executar testes unitários de componentes e funcionais.</li>
+<li>Executar testes de integração para garantir que todos os componentes funcionem juntos.</li>
+<li>Executar testes de ponta a ponta para simular interações do usuário e garantir que a aplicação se comporte como esperado.</li>
+<li>Executar formatador de código, linter e verificar outros problemas de qualidade de código.</li>
+<li>Fazer auditoria para verificar pacotes desatualizados ou vulneráveis.</li>
+<li>Verificar a acessibilidade e a responsividade.</li>
+<li>Concatenar CSS em um único arquivo para um carregamento mais rápido.</li>
+<li>Minificar o CSS para reduzir o tamanho do arquivo.</li>
+<li>Transpilar o JavaScript com o Babel para um suporte mais amplo a navegadores antigos.</li>
+<li>Concatenar todos os arquivos JS em um único arquivo para um carregamento mais rápido.</li>
+<li>Minificar e aplicar Uglify no JavaScript para reduzir o tamanho.</li>
+<li>Fazer o mesmo para qualquer CSS ou JS de terceiros.</li>
+<li>Mover todos os recursos de produção para um diretório de distribuição para separá-los do material de desenvolvimento.</li>
+<li>Implantar a aplicação em um ambiente de teste (staging) para os testes finais.</li>
+</ul>
+<p>As ferramentas de operações de desenvolvimento e tarefas de implantação dividem-se em três categorias:</p>
+<ol>
+<li><strong>Gerenciadores de pacotes</strong>: Estes mantêm o controle de todas as dependências externas
+        da aplicação. Isso inclui ferramentas de desenvolvimento e bibliotecas que são usadas. Ele não apenas
+        sabe quais pacotes baixar, mas também rastreia as versões. Você está usando <strong>npm</strong> como gerenciador de pacotes. </li>
+<li><strong>Empacotadores: </strong>: Os empacotadores lidam com a compilação, transpilação,
+        concatenação, minificação e movimentação de recursos no projeto. Você está usando <strong>Vite</strong> como o
+        empacotador. Outros empacotadores comuns são Snowpack, Parcel e Webpack. </li>
+<li><strong>Gerenciadores/executores de tarefas</strong>: Estes mantêm o controle do que precisa ser feito e
+        quando. Geralmente haverá scripts definidos no gerenciador de tarefas para cada fase do
+        desenvolvimento. O projeto é bastante simples, por isso usar <strong>npm</strong> novamente como gerenciador de tarefas é suficiente.
+        Outros gerenciadores comuns são o Grunt ou o Gulp. <div class="callout info">
+<p>Embora o npm em si seja primariamente um gerenciador de pacotes, sua capacidade de definir e executar scripts, combinada com a
+            disponibilidade de pacotes específicos para tarefas, torna-o uma ferramenta valiosa para o gerenciamento de tarefas no desenvolvimento
+            de software. Ele oferece uma maneira simples e eficiente de automatizar tarefas repetitivas e otimizar seu
+            fluxo de trabalho.</p>
+</div>
+</li>
+</ol>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S02 – Atividade de Aprendizagem: S02: A Interface Window</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span class="active"><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S02 – Atividade de Aprendizagem: S02: A Interface Window</h2>
+<h3>Visão Geral</h3>
+<p>Você já usou o <code>window</code> objeto muitas vezes ao trabalhar com JavaScript. Por exemplo, você
+      manipulou o DOM e foi o objeto global <code>window</code> objeto que forneceu o acesso. Você também
+      usou o <code>window.localStorage</code> para armazenar dados básicos no navegador. </p>
+<div class="callout info">
+<p>Você pode ter notado que a <code>window</code> sintaxe é frequentemente omitida porque é o objeto global no
+        ambiente do navegador e, portanto, não é necessária.</p>
+<pre><code class="javascript">window.document.querySelector(".message")
+// can be written as:
+document.querySelector(".message")
+// and
+window.localStorage.setItem("key", "value")
+// can be written as:
+localStorage.setItem("key", "value")</code></pre>
+</div>
+<h3>Preparação</h3>
+<p>A <strong>interface Window</strong> define as propriedades e métodos disponíveis para o objeto global como o <code>.location</code>, <code>.localStorage</code>, e <code>alert()</code>. É o
+      objeto de nível superior na hierarquia do JavaScript, o pai de todos os outros objetos no navegador. </p>
+<p>Ela fornece acesso às funcionalidades do navegador, incluindo métodos para manipular a janela
+      do navegador e acesso às propriedades da janela. Cada aba no navegador é representada por seu próprio <code>window</code> objeto. No entanto, algumas propriedades e métodos se aplicam à janela do navegador que o contém. </p>
+<p>Por exemplo, as propriedades <code>window.innerWidth</code> e <code>window.innerHeight</code> retornam a largura
+      e a altura da viewport da janela do navegador.</p>
+<div class="callout info">
+<p>Insira estas duas linhas de código no painel do console do DevTools do seu navegador.</p>
+<pre><code class="javascript">window.innerWidth
+window.innerHeight</code></pre>
+<p>Quais valores são retornados para o console? Como esses valores podem ser úteis no design responsivo?</p>
+<p>O que acontece quando você insere</p>
+<pre><code class="javascript">window.open("https://byupathway.edu")</code></pre>
+<p>no console?</p>
+</div>
+<h3>Instruções da Atividade</h3>
+<p>Um exemplo comumente usado da <strong>Window</strong> interface é detectar quando o usuário redimensiona a janela
+      do navegador. Isso é
+      útil para comportamentos responsivos ou para ajustar elementos dinamicamente. Nesta atividade, você examinará um exemplo
+      e modificará esse exemplo para usar funcionalidades adicionais:</p>
+<h4 class="step">Revisar o Exemplo do CodePen</h4>
+<ol>
+<li>Abra este CodePen <a href="https://codepen.io/BYU-Idaho/pen/YPPJzzN" target="_blank">Navegação
+          Responsiva</a></li>
+<li>Revise a interação ao redimensionar a página exibida manualmente. <br/>Este exemplo remove a classe
+        responsiva quando a janela é redimensionada manualmente pelo usuário. <div class="callout info">
+<p>Procure pela <code>window.addEventListener('resize')</code> função no painel do JavaScript.</p>
+</div>
+</li>
+</ol>
+<h4 class="step">Exibir Propriedades do Window</h4>
+<ol>
+<li>Faça um fork do CodePen da etapa anterior.</li>
+<li>Usando <code>window.innerWidth</code> e <code>window.innerHeight</code>, exiba uma mensagem no <code>&lt;aside&gt;</code> elemento fornecido que exibe a atual <code>innerWidth</code> e <code>innerHeight</code>.
+      </li>
+</ol>
+<!-- ? Add anther example ? -->
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window" target="blank">A Interface Window</a> – MDN — Esta página fornece uma visão geral detalhada da <strong>Window</strong> interface e de suas
+          propriedades e métodos. </li>
+<li><a href="https://www.w3schools.com/jsref/obj_window.asp" target="blank">O Objeto Window</a> –
+          W3Schools</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

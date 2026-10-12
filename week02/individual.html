@@ -1,0 +1,307 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | Tarefa | Atividade Individual</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span class="active"><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>Atividade Individual S02: Lista Dinâmica de Produtos</h2>
+<h3>Visão Geral</h3>
+<p> Esta tarefa dá continuidade ao processo de tornar o site mais dinâmico, abordando a página inicial. O objetivo é listar mais produtos, exigindo que a listagem de produtos seja construída dinamicamente com base nos dados fornecidos. </p>
+<h3>Instruções</h3>
+<p> Conclua a seguinte Tarefa individualmente. Cada estudante escreverá o código para sua própria cópia. </p>
+<div class="callout info">
+<p> Há vários pontos em que exemplos de código foram fornecidos. Para aproveitar ao máximo esta atividade, não olhe para os exemplos até ter tentado fazer essa seção. Depois de olhar o exemplo, resista à tentação de copiar/colar. Use os exemplos para obter correção ou ajudar a sair de um impasse. Não os use apenas para concluir rapidamente. </p>
+</div>
+<h3>Requisitos Principais</h3>
+<h4 class="step">Iniciar a Tarefa</h4>
+<ol>
+<li>Visite a cópia da equipe do <strong>Trello</strong> quadro para o projeto.</li>
+<li>Adicione-se à <code>Individual Activity W02: Dynamic product list</code> tarefa.<br/> Seus outros membros da equipe podem já ter se adicionado. Não tem problema.</li>
+<li>Se mais ninguém tiver feito isso ainda, mova para <code>'Doing'</code>.</li>
+<li>Leia os detalhes do cartão.</li>
+<li>Certifique-se de <strong>fazer pull de</strong> quaisquer alterações do GitHub antes de prosseguir.</li>
+<li>Crie um novo branch chamado <code><em>initials</em>--individual2</code>.
+        <div class="callout info">
+<p> Por exemplo, se o seu nome for John Doe, o branch deve ser chamado <code>jd--individual2</code>.
+          </p>
+</div>
+</li>
+</ol>
+<h4 class="step">Verifique Sua Compilação</h4>
+<div class="callout info">
+<p> Você também já deve ter tido alguns pull requests criados e mesclados neste ponto. Você verificou a compilação de "produção" do seu site desde então? Lembre-se de que você está implantando o site no <strong>Render</strong>. Esta implantação é na verdade automática. Toda vez que você alterar o branch "<strong>main</strong>" do seu site, ele atualizará o Render. </p>
+<p>Você também pode verificar a compilação de produção localmente. Se você executar <code>npm run build</code> ele atualizará os arquivos no <code>dist</code> diretório. Você deve fazer isso periodicamente para verificar se nada está quebrado. </p>
+<p> Se você visitar seu site no Render, provavelmente verá que algumas coisas estão quebradas.</p>
+</div>
+<ol>
+<li>Execute <code>npm run build</code>.</li>
+<li>Você pode fazer o <strong>Vite</strong> pré-visualizar esse diretório de compilação também, adicionando um comando ao arquivo <strong>package.json</strong>.<br/>✔ Adicione o seguinte: <code>"preview": "vite preview",</code> à seção <code>"scripts"</code>, se necessário, e execute a compilação novamente. </li>
+<li>Verifique o que ainda funciona e o que está quebrado. <div class="callout info">
+<p> Após fazer quaisquer alterações, você sempre precisa executar <code>npm run build</code> antes de executar <code>npm run preview</code>.
+          </p>
+</div>
+</li>
+<li>Quando você fez as alterações na página de detalhes do produto na semana passada, esqueceu de atualizar o Vite para que ele soubesse das alterações. Vamos fazer isso agora. <p> Abra o arquivo <code>vite.config.js</code>. Observe a seção que se parece com isto: </p>
+<pre><code class="lang-js">build: {
+  outDir: "../dist",
+  rollupOptions: {
+    input: {
+      main: resolve(__dirname, "src/index.html"),
+      cart: resolve(__dirname, "src/cart/index.html"),
+      checkout: resolve(__dirname, "src/checkout/index.html"),
+      product1: resolve(
+        __dirname,
+        "src/product_pages/cedar-ridge-rimrock-2.html"
+      ),
+      product2: resolve(__dirname, "src/product_pages/marmot-ajax-3.html"),
+      product3: resolve(
+        __dirname,
+        "src/product_pages/northface-alpine-3.html"
+      ),
+      product4: resolve(
+        __dirname,
+        "src/product_pages/northface-talus-4.html"
+      ),
+    },
+  },
+},</code></pre>
+<p> Você não está mais usando as páginas de produtos específicas e, em vez disso, tem um arquivo <code>index.html</code> sobre o qual precisa avisar o empacotador. Altere essa seção para que ela fique assim: </p>
+<pre><code class="lang-js">build: {
+  outDir: "../dist",
+  rollupOptions: {
+    input: {
+      main: resolve(__dirname, "src/index.html"),
+      cart: resolve(__dirname, "src/cart/index.html"),
+      checkout: resolve(__dirname, "src/checkout/index.html"),
+      product: resolve(__dirname, "src/product_pages/index.html"
+      ),
+
+    },
+  },
+},</code></pre>
+<div class="callout warning">
+<p> Sempre que você adicionar ou remover mais arquivos .HTML no site, precisará atualizar essa configuração, caso contrário a versão de produção do site deixará de funcionar. </p>
+<p style="text-align: center;">
+<video controls="" src="../images/write-it-down.mp4" width="500"></video>
+</p>
+</div>
+</li>
+<li>
+<p> Você precisa fazer mais uma alteração relacionada à ferramenta de compilação. Se olhar dentro do <strong>dist</strong> diretório, você notará que os arquivos <code>.json</code> do diretório <strong>json</strong> não estão lá. O Vite não sabe que precisa copiá-los. </p>
+<p> A maneira mais fácil de corrigir isso seria criar um novo diretório chamado <strong>public</strong> no <strong>src</strong> diretório. Em seguida, mova o <strong>json</strong> diretório para esse novo diretório. O Vite copiará
+          automaticamente tudo no <strong>public</strong> diretório
+          para a compilação. </p>
+</li>
+<li> Você deve mover o <strong>images</strong> diretório para o <strong>public</strong> diretório também. </li>
+</ol>
+<!-- Instructions on updated paths needed in other parts of the code ??? -->
+<div class="callout info">
+<p> Alguém da equipe deve verificar a compilação periodicamente para garantir
+        que ela não esteja quebrada. Um bom momento para fazer isso seria cada vez que
+        um pull request for mesclado! </p>
+</div>
+<h4 class="step">Ler os Dados</h4>
+<p> Nossa primeira tarefa é ler os dados do produto do <code>tents.json</code> arquivo (a fonte de dados atual). </p>
+<ol>
+<li>Importe o <code>ProductData</code> módulo para <code>main.js</code> e crie uma instância dele. </li>
+</ol>
+<h4 class="step">classe ProductList</h4>
+<ol>
+<li>Crie um novo arquivo <code>ProductList.mjs</code>. O propósito deste script será gerar uma lista de
+        cartões de produtos em HTML a partir de um array.</li>
+<li>Adicione um <code>class</code> chamado <code>ProductList</code> e <code>export</code> este <code>class</code> como <code>default</code>.
+      </li>
+<li>Comece a criar seu <code>ProductList</code> módulo escrevendo o código para o <strong>construtor</strong>.
+        Existe mais de uma categoria de produtos que precisará ser listada independentemente. Para tornar a <code>ProductList</code> classe o mais flexível e reutilizável possível, o construtor deve receber os
+        seguintes parâmetros: <ol>
+<li>o produto <code>category</code>,</li>
+<li>o <code>dataSource</code>, e</li>
+<li>o elemento HTML (<code>listElement</code>) no qual renderizar a lista de produtos
+            (destino de saída).</li>
+</ol>
+</li>
+<li> Por fim, use o dataSource para obter a lista de produtos com os quais trabalhar. Você pode fazer isso no
+        construtor ou em um <code>init()</code> método. Uma vantagem do método init é
+        que ele nos permitirá usar <code>async/await</code> ao chamar a promise em <code>getData()</code>.
+        <details>
+<summary> Clique para ver o exemplo de código (<code>ProductList.mjs</code>)
+          </summary>
+<pre><code class="js">export default class ProductList {
+  constructor(category, dataSource, listElement) {
+    // You passed in this information to make the class as reusable as possible.
+    // Being able to define these things when you use the class will make it very flexible
+    this.category = category;
+    this.dataSource = dataSource;
+    this.listElement = listElement;
+  }
+
+  async init() {
+    // the dataSource will return a Promise...so you can use await to resolve it.
+    const list = await this.dataSource.getData();
+    // next, render the list – ** future **
+  }
+}</code></pre>
+</details>
+</li>
+<li>Importe a <code>ProductList</code> classe para <code>main.js</code> como um tipo <code>module</code>.
+        <div class="callout warning"> Certifique-se de referenciar <code>main.js</code> no <strong>index.html</strong> arquivo com uma <code>script</code> tag. </div>
+</li>
+<li> Em seguida, crie uma instância da sua <code>ProductList</code> classe em <code>main.js</code> e certifique-se de que você
+        consegue ver a lista de
+        produtos. </li>
+</ol>
+<h4 class="step">Trabalhando com modelos</h4>
+<p> Ao pensar na construção da lista de produtos, cada cartão de produto terá uma marcação muito semelhante.
+      Os modelos são uma forma de reutilizarmos a marcação de maneira eficiente. Antes você podia deixar
+      a marcação no arquivo HTML e apenas preencher os valores com JavaScript, mas isso não funcionará
+      pois você precisa de várias cópias do modelo. Existem muitas maneiras pelas quais os desenvolvedores lidam com
+      questões de modelos.</p>
+<div class="callout info">
+<p> Ao escolher uma solução de modelo, tenha algumas coisas em mente:</p>
+<ol>
+<li> Idealmente, a solução manterá a <strong>separação de conceitos</strong>.
+          Seria bom se você deixasse o HTML onde ele pertence, no arquivo .html em vez de enterrado
+          no JavaScript. Isso leva a um código mais fácil de manter. </li>
+<li> O HTML e o CSS de um site são frequentemente <strong>gerenciados</strong> por uma equipe
+          diferente da lógica no JavaScript. Se o HTML estiver no
+          JavaScript, toda vez que uma alteração de estilo precisar ser feita,
+          o JavaScript terá que ser modificado em vez de apenas
+          alterar o HTML. Se a sua solução de modelos envolve
+          incorporar o HTML no código JavaScript, isso é feito de tal
+          forma que não exija um alto nível de conhecimento de JS para
+          alterar um modelo? </li>
+<li>
+<strong>Desempenho</strong>. Nossa solução de modelos não deve levar a problemas de
+          desempenho. </li>
+</ol>
+</div>
+<p>Algumas das opções que são usadas podem ser encontradas abaixo e são ensinadas na
+      pilha de cursos do programa de graduação:</p>
+<ul>
+<li><strong>Framework ou Biblioteca</strong>: Se o projeto estiver usando um framework ou
+        biblioteca front-end como <a href="https://2024.stateofjs.com/en-US/libraries/front-end-frameworks/#front_end_frameworks_experience_ranking" target="_blank">React, Angular, Vue, Svelte</a>. O framework ou biblioteca terá a
+        solução de modelos integrada. </li>
+<li><strong>Renderização no Lado do Servidor (SSR)</strong>: Você poderia usar uma linguagem ou framework no lado do servidor como PHP, .NET ou NodeJS para inserir o modelo quando a página fosse requisitada, mas antes de ser enviada. </li>
+<li><strong>Ferramentas de Modelos</strong>: Existem soluções de modelos que se tornam parte do processo de compilação do front-end. Ferramentas como <a href="https://handlebarsjs.com/" target="_blank">Handlebars</a>,
+        <a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a>,
+        <a href="https://pugjs.org/" target="_blank">pug</a>, <a href="https://www.developerdrive.com/best-javascript-templating-engines/" target="_blank">e outros motores</a>. A maioria dessas ferramentas seria integrada ao seu fluxo de trabalho por meio do seu empacotador ou gerenciador de tarefas. </li>
+<li><strong>Modelo HTML</strong>: Use a tag <a href="https://dev.to/ahferroin7/the-html5-template-element-26b6" rel="noreferrer" target="_blank">&lt;template&gt;</a> em HTML com um pouco de JavaScript para construir sua própria solução. </li>
+<li><strong>Literal de Modelo</strong>: Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" rel="noreferrer" target="_blank">strings de literal de modelo</a> em JavaScript para construir sua própria solução. </li>
+</ul>
+<ol>
+<li> Como as necessidades de modelos são bem simples, você optará por uma das soluções de modelos mais simples da lista, <strong>strings de literal de modelo</strong>. Algumas das outras opções oferecem mais funcionalidade e, em alguns casos, melhor escalabilidade, mas ao custo de mais complexidade. </li>
+<li> Crie uma função de modelo que simplesmente retornará uma string de literal de modelo para cada um dos modelos necessários. No topo do seu <code>ProductList</code> módulo, adicione uma função para um <code>productCardTemplate(product)</code>. Você pode usar o HTML atual no arquivo <code>/index.html</code> como seu ponto de partida. <details>
+<summary><code>productCardTemplate()</code> exemplo</summary>
+<pre><code class="js">// ProductList.mjs
+function productCardTemplate(product) {
+  return `&lt;li class="product-card"&gt;
+    &lt;a href="product_pages/?product="&gt;
+      &lt;img src="" alt="Image of "&gt;
+      &lt;h2 class="card__brand"&gt;&lt;/h2&gt;
+      &lt;h3 class="card__name"&gt;&lt;/h3&gt;
+      &lt;p class="product-card__price"&gt;$&lt;/p&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;`
+}</code></pre>
+</details>
+</li>
+<li> Adicione um método à sua classe ProductList para usar este modelo chamado <code>renderList</code>, chame a função de modelo uma vez para cada produto na lista e insira-o no DOM. O método deve receber a lista de produtos como um argumento. <div class="callout info">
+<p>Lembre-se: <code>map</code> é uma ótima maneira de transformar objetos de dados em strings HTML. </p>
+</div>
+</li>
+</ol>
+<h4 class="step">Adicionando os dados</h4>
+<ol>
+<li> Você deve ter alguns cartões de produtos sendo exibidos, mas todos são iguais e estão faltando informações críticas. A próxima etapa é inserir as informações específicas do produto no modelo HTML. É por isso que você usou uma string de literal de modelo, para aproveitar a interpolação de variáveis que ela oferece. </li>
+<li> Insira as variáveis corretas em seu modelo. Em seguida, teste novamente para garantir que tudo esteja sendo exibido corretamente. Lembre-se de remover os produtos codificados diretamente no arquivo <code>/index.html</code> para que você não tenha nenhum duplicado. </li>
+</ol>
+<h4 class="step">Tornar <code>renderList</code> reutilizável</h4>
+<p>O código para o seu <code>renderList</code> método se parece com isto:</p>
+<pre><code class="js">renderList(list) {
+  const htmlStrings = list.map(productCardTemplate);
+  this.listElement.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
+}</code></pre>
+<p> Você precisará gerar mais conteúdo com este modelo HTML em outras partes do programa. Para tornar esta função reutilizável, primeiro examine todas as partes do código que são específicas para este caso de uso específico, que é criar uma lista de cartões de produtos. </p>
+<div class="callout reference">
+<ol style="list-style-type: none;">
+<li>1️⃣ O elemento no qual você deseja inserir o novo HTML está sendo fornecido pela classe: <code>this.listElement</code>.
+        </li>
+<li>2️⃣ A função de modelo que você usará está codificada diretamente: <code>productCardTemplate</code>
+</li>
+<li>3️⃣ Você também codificou diretamente a posição do HTML inserido: <code>afterbegin</code>, este nem sempre pode ser o caso desejado. Às vezes, você também pode querer limpar o conteúdo do elemento primeiro. </li>
+</ol>
+</div>
+<p> A lista de produtos também é específica, mas você já está passando isso. </p>
+<p>
+<ol>
+<li>Lidar com os itens 1️⃣ e 3️⃣ é fácil porque você pode simplesmente passar esses valores para a função como parâmetros.</li>
+<li>O item 2️⃣, no entanto, é uma função. Funções podem ser passadas para outras funções em JavaScript. Crie uma nova função no arquivo <code>utils.mjs</code> chamado <code>renderListWithTemplate</code> e exporte-a. <ol>
+<li>Ela deve receber cinco (5) argumentos: <code>templateFn, parentElement, list, position, and clear</code>.
+          </li>
+<li>Em seguida, mova o código da sua <code>renderList</code> função para esta nova função exportada em <code>utils.mjs</code> e refatore o código para funcionar com estes novos parâmetros.</li>
+</ol>
+</li>
+<li> Frequentemente <code>afterbegin</code> será a posição na qual você deseja inserir e, frequentemente, podemos não querer limpar o conteúdo. Quando você declarar sua função, defina um valor padrão para esses dois parâmetros. <pre><code class="js">function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false)</code></pre>
+</li>
+<li>Adicione a lógica à sua função para limpar o elemento fornecido se <code>clear</code> for verdadeiro. </li>
+<li> Em seguida, importe em sua função para o <code>ProductList</code> módulo e refatore <code>renderList</code> para usar a nova função utilitária. </li>
+</ol>
+</p>
+<h3>Exemplo de Solução</h3>
+<div class="callout warning">
+<p> Em hipótese <strong>ALGUMA</strong> abra o exemplo de solução até ter trabalhado nesta atividade como uma equipe por pelo menos uma hora. Ao final da hora, se você ainda estiver com dificuldades em alguns dos requisitos principais, você é bem-vindo a visualizar a solução de exemplo e usá-la para ajudá-lo a concluir seu próprio código. Mesmo se você usar o código de exemplo para ajudá-lo, você pode relatar que concluiu os requisitos principais, caso você mesmo os tenha codificado. </p>
+<details>
+<summary>Exemplo de Solução</summary>
+<p> A solução de exemplo pode ser encontrada no <strong>src</strong> diretório: <a href="https://github.com/byui-cse/wdd330-sleepoutside/tree/week2-Individual" rel="noreferrer" target="_blank">Repositório WDD 330 Sleep Outside <strong>week2-Individual</strong> branch</a>.
+        </p>
+</details>
+</div>
+<h3>Finalmente</h3>
+<p> Conclua este trabalho de projeto individual finalizando seu trabalho individual e, em seguida, <strong>coordenando com sua equipe</strong>.
+    <ol>
+<li>Faça o commit e envie suas alterações.</li>
+<li>Reúna-se com sua equipe e discuta quais alterações (branch) de qual membro da equipe vocês gostariam de manter.<br/> <strong>Sua equipe manterá apenas uma.</strong></li>
+<li>Envie uma requisição para a branch que vocês decidiram manter.</li>
+<li>Revise o Pull Request, feche-o e mescle a branch de volta na branch Main.</li>
+<li>Mova o cartão/tarefa Dynamic Product List para a <code>"Done"</code> coluna.</li>
+</ol>
+</p>
+<h3>Envio</h3>
+<p>Retorne ao Canvas para relatar seu trabalho.</p>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

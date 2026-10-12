@@ -1,0 +1,205 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S03 | Atividade em Equipe</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span class="active"><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>Atividade em Equipe S03: Cabeçalho e Rodapé Dinâmicos</h2>
+<h3>Visão Geral</h3>
+<p> Esta atividade finalizará o processo de conversão do site SleepOutside em um
+      site dinâmico. </p>
+<h3>Instruções da Atividade</h3>
+<p> Conclua a seguinte Tarefa em equipe. Designe um membro da equipe
+      como o "piloto principal" e colaborem em sua cópia do código.
+      Todos na equipe devem estar ativamente engajados na escrita do código
+      e contribuindo para a solução. Assim que a solução estiver funcionando, garanta
+      que todos na equipe obtenham uma cópia do código. A cada semana, permita que
+      outra pessoa seja o "piloto principal" da programação. </p>
+<div class="callout info">
+<p> Existem muitos pontos onde exemplos de código foram fornecidos. Para aproveitar ao
+        máximo esta atividade, não olhe para os exemplos até que sua equipe tenha
+        tentado resolver essa seção. Então, depois de olhar o exemplo, resista
+        à tentação de copiar/colar. Use os exemplos para obter correções ou
+        ajudar a destravar. </p>
+</div>
+<h3>Requisitos Principais</h3>
+<h4 class="step">Trello</h4>
+<ol>
+<li>Na reunião síncrona, o piloto deve visitar a cópia da equipe do quadro do Trello do projeto.</li>
+<li>Adicione cada um dos membros da equipe presentes ao <code>Team Activity 03: Dynamic header and footer</code> cartão. </li>
+<li>Mova-o para a <code>"Doing"</code> lista no Trello.</li>
+<li>Leia os detalhes do cartão juntos.</li>
+</ol>
+<h4 class="step">Branch do GitHub</h4>
+<ol>
+<li>Faça o pull de quaisquer alterações do projeto da equipe no GitHub antes de prosseguir.</li>
+<li>Crie uma nova branch chamada <code><em>driverinitials</em>--team3</code> onde <em>driverinitials</em> são as iniciais do piloto. </li>
+</ol>
+<h4 class="step">O Cabeçalho e o Rodapé</h4>
+<p>O código para o cabeçalho e o rodapé do site deve ser igual ou quase igual em todas as páginas de um site. Você
+      atualmente tem quatro cópias, uma em cada arquivo .html no site. Se precisar fazer uma alteração no cabeçalho, você
+      terá
+      que visitar cada página para mantê-las iguais. Isso é um incômodo com quatro páginas e se torna inadministrável em
+      sites maiores.</p>
+<p>Assim como foi para a lista de produtos, o uso de modelos pode ser uma solução para este problema também.</p>
+<p>Há uma diferença desta vez, pois há apenas uma cópia do modelo, e há pouca informação
+      que precisa ser atualizada. O cabeçalho e o rodapé são em grande parte estáticos. Em vez de incorporar o modelo no JavaScript
+      como você fez com a listagem de produtos, desta vez você puxará o modelo HTML para um arquivo separado que poderá
+      carregar com <a href="https://developer.mozilla.org/en-US/docs/Glossary/AJAX" target="_blank">AJAX</a>.
+    </p>
+<ol>
+<li>Crie outro diretório chamado <strong>partials</strong> (certifique-se de colocar este novo diretório em <strong>src/public</strong>).
+      </li>
+<li>Adicione dois novos arquivos ao diretório partials: <strong>header.html</strong> e <strong>footer.html</strong>.
+      </li>
+<li>Copie o HTML de <strong>src/index.html</strong> página usando o <em>interior</em> dos elementos <code>header</code> e <code>footer</code> elementos e coloque esse HTML em seu respectivo arquivo. </li>
+<li>Adicione um <code>id</code> atributo aos elementos header e footer no arquivo <strong>index.html</strong>. <details>
+<summary>Exemplo: <strong>header.html</strong></summary>
+<p>Não apenas copie este código, pois ele pode não corresponder ao seu trabalho!</p>
+<pre><code class="html">&lt;div class="logo"&gt;
+  &lt;img src="/images/noun_Tent_2517.svg" alt="tent image for logo"&gt;
+  &lt;a href="index.html"&gt; Sleep&lt;span class="highlight"&gt;Outside&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="cart"&gt;
+  &lt;a href="cart.html"&gt;
+    &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+    ...all the SVG code ...
+    &lt;/svg&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</details>
+<details>
+<summary>Exemplo: <strong>index.html</strong></summary>
+<p> (Não copie este código, pois ele pode não corresponder ao
+            seu trabalho!)</p>
+<pre><code class="html">&lt;header class="divider" id="main-header"&gt;
+&lt;/header&gt;</code></pre>
+</details>
+</li>
+<li>
+<div>
+<p> Para carregar os modelos, você pode começar com a <code>renderListWithTemplate</code> função que você escreveu na semana
+            passada,
+            mas precisará fazer algumas alterações. Você está renderizando apenas um modelo em vez de uma lista. Você também precisa
+            escrever uma função para requisitar o arquivo HTML com o cabeçalho e o rodapé. </p>
+</div> ✔ Copie a <code>renderListWithTemplate</code> função em <strong>utils.mjs</strong> e cole-a de volta em <strong>utils.mjs</strong>.<br/> ✔ Renomeie para <code>renderWithTemplate</code>.
+      </li>
+<li>Modifique a nova função removendo o laço e passando quatro parâmetros:<br/>
+        ✔ <code>template</code><br/>
+        ✔ <code>parentElement</code><br/>
+        ✔ <code>data</code><br/>
+        ✔ <code>callback</code>
+</li>
+<li>O cabeçalho deve ser em sua maioria HTML estático. No entanto, se a sua equipe tiver concluído os cartões de ícone do carrinho (animação ou número de itens), você pode precisar adicionar essa funcionalidade de volta. Este é um ótimo caso de uso para uma função de callback, mas o callback nem sempre será necessário.<br/> No <code>renderWithTemplate</code> função<br/> ✔ Insira o <code>template</code> no <code>parentElement</code><br/> ✔ Adicione uma instrução if que verifique a existência do parâmetro callback; se ele existir, chame-o. <details>
+<summary>Exemplo: <strong>utils.mjs</strong> <code>renderWithTemplate</code></summary>
+<pre><code class="js">export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if(callback) {
+    callback(data);
+  }
+}</code></pre>
+<div class="callout reference">
+<p>Este exemplo usa innerHTML para inserir o modelo no parentElement. Outras opções possíveis incluem:</p>
+<pre><code class="js">parentElement.insertAdjacentHTML("afterbegin", template);</code></pre>
+<pre><code class="js">const fragment = document.createRange().createContextualFragment(template);
+                parentElement.replaceChildren(fragment);</code></pre>
+<p>Quais são as vantagens e desvantagens de cada abordagem?</p>
+</div>
+</details>
+</li>
+<li>Adicione uma função ao <strong>utils.mjs</strong> chamada <code>loadTemplate</code>. Esta função assíncrona busca o conteúdo do arquivo HTML fornecido um <code>path</code>. A resposta para o fetch é convertida em texto e retorna o conteúdo HTML como uma string. <details>
+<summary>Exemplo: <strong>utils.mjs</strong> <code>loadTemplate</code></summary>
+<pre><code class="js">export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}</code></pre>
+</details>
+</li>
+<li>Adicione uma função ao <strong>utils.mjs</strong> chamada <code>loadHeaderFooter</code> que possa ser exportada. Ela precisa ser capaz de fazer o seguinte: <ol>
+<li>Carregar os modelos de cabeçalho e rodapé dos partials usando o <code>loadTemplate</code>.</li>
+<li>Obter os elementos reservadores de espaço (placeholders) de cabeçalho e rodapé do DOM.</li>
+<li>Renderizar o cabeçalho e o rodapé usando <code>renderWithTemplate</code>.</li>
+</ol>
+<details>
+<summary>Exemplo: <strong>utils.mjs</strong> <code>loadHeaderFooter</code> (apenas exemplo de cabeçalho)</summary>
+<pre><code class="js">const headerTemplate = await loadTemplate("../partials/header.html");
+
+const headerElement = document.querySelector("#main-header");
+
+renderWithTemplate(headerTemplate, headerElement);</code></pre>
+</details>
+</li>
+<li>Atualize <strong>main.js</strong> para importar <code>loadHeaderFooter</code> e depois chamar essa função importada para carregar o cabeçalho e o rodapé no <strong>src/index.html</strong>.</li>
+<li>Faça a mesma coisa para <ul>
+<li><strong>product_pages/index.html</strong>,</li>
+<li><strong>cart/index.html</strong>, e</li>
+<li><strong>cart/checkout.html</strong> (provavelmente você precisará criar um arquivo <strong>checkout.js</strong> para isso).</li>
+</ul>
+</li>
+</ol>
+<h3>Desafio Adicional</h3>
+<p>O carrinho já era uma página dinâmica. Ele lia a lista de itens do localStorage e depois construía o HTML para exibir os itens. Atualize o carrinho de compras para corresponder ao restante da aplicação.</p>
+<h4 class="step step-reset">Refactor o Carrinho de Compras</h4>
+<ol>
+<li>Crie um módulo <strong>ShoppingCart.mjs</strong> semelhante ao que você fez para o <code>ProductList</code>.
+      </li>
+<li>Converta-o para usar uma <code>template</code> como você fez para o <code>ProductList</code>.
+      </li>
+</ol>
+<h3>Exemplo de Solução</h3>
+<div class="callout warning">
+<p> Como parte desta atividade em equipe, espera-se que você analise uma solução do instrutor para comparar sua abordagem com ela. </p>
+<p> NÃO <strong>NÃO</strong> abra a solução de exemplo até ter trabalhado nesta atividade em equipe por pelo menos uma hora. Ao final da hora, se você ainda estiver com dificuldades em alguns dos requisitos principais, você é bem-vindo a visualizar a solução de exemplo e usá-la para ajudar a concluir seu próprio código. </p>
+<details>
+<summary>Exemplo de Solução</summary>
+<p>A solução de exemplo pode ser encontrada no <strong>src</strong> diretório: <a href="https://github.com/byui-cse/wdd330-sleepoutside/tree/week3-Team" rel="noreferrer" target="_blank">Repositório WDD 330 Sleep Outside <strong>week3-Team</strong> branch</a>.</p>
+</details>
+</div>
+<h3>Faça um Pull Request</h3>
+<p> Depois de ter concluído o que puder, revisado a solução de exemplo e colocado seu código para funcionar:</p>
+<ol>
+<li>o piloto deve fazer o commit e enviar as alterações,</li>
+<li>o piloto deve enviar um pull request para este branch,</li>
+<li>a equipe revisa o pull request, o fecha e mescla o branch de volta para o <strong>Main</strong>, e </li>
+<li>finalmente, alguém move o cartão do Trello para "<strong>Concluído</strong>".</li>
+</ol>
+<h3>Envio</h3>
+<p>Retorne ao Canvas para relatar seu trabalho.</p>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

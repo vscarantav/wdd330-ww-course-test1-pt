@@ -1,0 +1,213 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | Tarefa | Atividade Individual</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span class="active"><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S03 Atividade Individual: Expandir Inventário</h2>
+<h3>Visão Geral</h3>
+<p> Muitas das alterações que você já fez foram para preparar o site para poder escalar para quantos produtos você desejar. Nesta atividade, você adicionará produtos organizados em quatro categorias: Barracas, Sacos de Dormir, Mochilas e Redes. Você precisará alterar a página de índice para mostrar as quatro categorias e, em seguida, construir uma página dinâmica de listagem de produtos que buscará os produtos de uma API e os exibirá. </p>
+<h3>Instruções</h3>
+<p> Conclua a seguinte Tarefa individualmente. Cada estudante escreverá o código para sua própria cópia. </p>
+<h3>Requisitos Principais</h3>
+<h4 class="step">Iniciar a Tarefa</h4>
+<ol>
+<li>Visite a cópia da equipe do quadro do Trello para o projeto.</li>
+<li>Adicione-se à <code>Individual Activity W03: Expand inventory</code> tarefa.</li>
+<li>Se mais ninguém tiver feito isso ainda, mova-a para a <code>'Doing'</code> lista.</li>
+<li>Leia os detalhes do cartão.</li>
+<li>Certifique-se de <strong>fazer pull de</strong> quaisquer alterações do GitHub antes de prosseguir.</li>
+<li>Crie uma nova branch chamada <code><em>yourinitials</em>--individual3</code>.</li>
+</ol>
+<h4 class="step">Refatorar</h4>
+<ol>
+<li>Crie um novo diretório em <strong>src</strong> chamado <strong>product_listing</strong>.</li>
+<li>Adicione um novo <strong>index.html</strong> arquivo a esse diretório.</li>
+<li>Crie um <strong>product-listing.js</strong> arquivo no <strong>js</strong> diretório.</li>
+<li>Adicione HTML básico à nova <strong>index.html</strong> página, como o cabeçalho, rodapé, estilos, etc. Você pode querer usar apenas o <strong>src/index.html</strong> como ponto de partida. Em seguida, remova o conteúdo desnecessário, incluindo o banner e o texto. <div class="callout info">
+<p> ✔ Adicionar uma nova página ao site exige que o arquivo <strong>vite.config.js</strong> seja atualizado para informar o Vite sobre isso, ou a compilação falhará. </p>
+</div>
+</li>
+<li>Mova o JavaScript do <strong>main.js</strong> que é responsável por renderizar a lista de produtos para o novo <strong>product-listing.js</strong> arquivo. (Este é, de fato, a maior parte do conteúdo atual do <strong>main.js</strong>.) </li>
+<li>Abra <strong>product_listing/index.html</strong> no navegador para garantir que as barracas ainda sejam renderizadas. <div class="callout info">
+<p> Você precisará corrigir alguns caminhos para que tudo funcione corretamente. Por exemplo, a nova página não conseguirá encontrar o arquivo CSS nem o novo arquivo JS que você criou até que os caminhos dos arquivos sejam corrigidos. Não se preocupe em corrigir as URLs das imagens ainda. Elas mudarão novamente de qualquer forma e você as corrigirá mais tarde.</p>
+</div>
+</li>
+<li>Exiba as quatro imagens das categorias de produtos na <code>src/index.html</code> página abaixo da imagem principal. <figure>
+<img alt="Captura de tela das categorias de produtos" loading="lazy" src="../images/sleepoutside-product-categories.png" width="600"/>
+<figcaption>Captura de tela da Exibição de Categorias de Produtos</figcaption>
+</figure>
+<div class="callout info">
+<p>Você pode usar seus próprios ícones ou as imagens <strong>svg</strong> fornecidas aqui:</p>
+<ul>
+<li><a href="../images/category-tents.svg">Barracas (svg)</a></li>
+<li><a href="../images/category-backpacks.svg">Mochilas (svg)</a></li>
+<li><a href="../images/category-sleepingbags.svg">Sacos de Dormir (svg)</a></li>
+<li><a href="../images/category-hammocks.svg">Redes (svg)</a></li>
+</ul>
+</div>
+</li>
+<li>Vincule cada um dos elementos de categoria a <strong>product_listing/index.html</strong>.<br/> Certifique-se de passar o <code>category</code> correto como parte da URL (tents, backpacks, sleeping-bags ou hammocks). <div class="callout info">
+<p> Se você precisar de um lembrete de como adicionar um parâmetro de URL a um link, confira a função de modelo em <code>ProductList.mjs</code>. Ela tem um exemplo de passagem de um parâmetro na URL. </p>
+</div>
+</li>
+</ol>
+<h4 class="step">Variáveis de Ambiente</h4>
+<div class="callout info">
+<p>Esta aplicação será alterada para usar um servidor de API que fornecerá endpoints para acessar tarefas como obter informações do produto, fazer login de usuários, enviar pedidos, etc. Durante o desenvolvimento, são feitas alterações que não precisam aparecer no ambiente de produção. O <strong>servidor de desenvolvimento</strong> é um ambiente de testes usado durante o desenvolvimento da aplicação. A aplicação pode ser alterada sem se preocupar com a aplicação em execução no <strong>servidor de produção</strong> que possui os dados reais que devem ser protegidos.</p>
+<p> Esta separação é muito comum no desenvolvimento. No entanto, isso significa que você terá que alterar a URL que está sendo usada dependendo se o código está sendo executado em um ambiente de desenvolvimento ou em um ambiente de produção. </p>
+</div>
+<p>
+<strong>Variáveis de ambiente</strong> são uma maneira de armazenar valores que são específicos para o ambiente em que o código está sendo executado. Por exemplo, você poderia ter uma variável que armazena a URL do servidor de desenvolvimento e outra variável que armazena a URL do servidor de produção. As variáveis de ambiente fornecem valores que mudam automaticamente dependendo de onde o código está sendo executado. Na maioria das vezes, você as cria em um arquivo chamado <strong>.env</strong> (dotenv). Você está usando o <strong>Vite</strong> como ferramenta de compilação e ele tem a capacidade embutida de trabalhar com esses arquivos. Ele procurará automaticamente por um arquivo <strong>.env</strong> e, se encontrar um, disponibilizará as variáveis nele definidas por meio de uma global especial: <strong>import.meta.env</strong>.
+    </p>
+<p> Como o <strong>Vite</strong> é para construir projetos front-end onde todo o código termina no navegador, ele nos dá uma maneira de controlar quais das variáveis de ambiente ficam disponíveis no código voltado para o cliente. Qualquer variável que você queira usar no código que enviar precisará ser prefixada pela <strong>VITE_</strong> sintaxe. </p>
+<ol>
+<li>Abra o arquivo <strong>.env.sample</strong> no <strong>src</strong> diretório.</li>
+<li>Procure pela variável chamada <code>VITE_SERVER_URL</code>.</li>
+<li>Observe que a URL do servidor é fornecida como <code>VITE_SERVER_URL=https://wdd330-backend-osp8.onrender.com/</code>.
+        <div class="callout info">
+<p> Esta variável de URL do servidor não é algo que você precisa manter em segredo. Ela precisa estar disponível no código. Ela tem o <code>VITE_</code> prefixo. </p>
+</div>
+</li>
+<li>🗝️ Renomeie o <strong>.env.sample</strong> para <strong>.env</strong> usando <strong>Arquivo-&gt;Salvar Como</strong>. O Vite agora verá o arquivo e usará as variáveis contidas nele. <div class="callout info">
+<p> É uma prática comum fornecer um exemplo com um nome diferente para deixar claro que não é o arquivo real. </p>
+</div>
+</li>
+</ol>
+<div class="callout info">
+<p>Você pode estar se perguntando por que esse arquivo é chamado <strong>.env.sample</strong>. As variáveis de ambiente geralmente contêm informações confidenciais e, por isso, é comum não incluir esses arquivos no repositório Git do projeto. Se você der uma olhada no arquivo <strong>.gitignore</strong>, verá que os arquivos <strong>.env</strong> já estão sendo ignorados. Arquivos nomeados dessa forma nunca serão rastreados pelo Git. </p>
+<p> A próxima questão é: como as variáveis de ambiente são usadas no ambiente de produção? Isso é abordado abaixo. </p>
+</div>
+<p> Quando o código for implantado no <strong>Render</strong> (o ambiente de produção), ele precisará saber a URL do servidor que deve usar. Como o arquivo <strong>.env</strong> não fará parte do repositório, ele é configurado de uma maneira diferente. </p>
+<p>Apenas <strong>um</strong> membro da sua equipe precisa fazer a seguinte manutenção.</p>
+<ol>
+<li>Faça login no Render e abra o projeto.</li>
+<li>Navegue até <strong>Configurações do Site-&gt;Variáveis de Ambiente</strong>.</li>
+<li>Adicione uma nova variável.</li>
+<li>Insira <code>VITE_SERVER_URL</code> como a <strong>Chave</strong>.</li>
+<li>Insira a URL do servidor <code>https://wdd330-backend-osp8.onrender.com/</code> como o <strong>Valor</strong>.
+      </li>
+<li>Certifique-se de <strong>Salvar</strong> a nova variável.</li>
+</ol>
+<h4 class="step">Obtendo dados de uma API</h4>
+<p> Em seguida, modifique o código para obter os dados do produto de uma API em vez do arquivo JSON local. Devido à forma como ele está estruturado, esse código deve ser relativamente fácil. </p>
+<ol>
+<li>Abra <code>ProductData.mjs</code>.</li>
+<li>
+<p>No construtor, um caminho foi definido para os produtos. Esse caminho era baseado na categoria de barracas e seria usado posteriormente para obter os dados. Com a API, a categoria no DataSource não é necessária. Ela será passada quando necessário, o que torna o DataSource mais flexível. </p> Adicione a seguinte linha ao topo do arquivo: <br/>
+<pre><code class="js">const baseURL = import.meta.env.VITE_SERVER_URL</code></pre>
+<div class="callout info">
+<p>Observe a variável de ambiente definida no <code>.env</code> arquivo.</p>
+</div>
+</li>
+<li>Remova a categoria e o caminho do construtor.</li>
+<li>No <code>getData</code> método, adicione um parâmetro de <code>category</code> e aproveite esta oportunidade para alterar o fetch para usar async/await. Altere a <code>getData</code> função para ficar assim: <pre><code class="js">async getData(category) {
+  const response = await fetch(`${baseURL}products/search/${category} `);
+  const data = await convertToJson(response);
+  return data.Result;
+}</code></pre>
+<div class="callout info">
+<p> Por que retornar <code>data.Result</code>? Antes era simplesmente <code>data</code>. Os dados enviados de volta da API estão estruturados de forma diferente. Você também terá outras correções a fazer por causa disso. </p>
+</div>
+</li>
+<li>Abra <strong>productList.js</strong> para edição.</li>
+<li>Altere a linha no <code>init()</code> método onde os dados são recuperados. Ele deve ficar assim após as alterações: <pre><code class="lang-js">const list = await this.dataSource.getData(this.category);</code></pre>
+</li>
+</ol>
+<p> Agora você deve ver os produtos listados ao clicar em um dos links, mas há dois problemas. O primeiro é que nenhuma imagem está sendo exibida. O segundo é que todos os links estão mostrando a mesma lista de produtos. </p>
+<h4 class="step">Obtendo os produtos corretos</h4>
+<p> Você deve passar a categoria na URL para a página <strong>product_listing</strong>. Você precisa recuperá-la a partir do parâmetro em <strong>product-listing.js</strong>. Depois, envie-a para a <code>ProductList</code> classe. Lembre-se de que um método foi criado no arquivo <strong>utils.mjs</strong> que obtém parâmetros de uma URL. </p>
+<p> Você moveu muitas coisas de lugar. Neste ponto, seu arquivo <strong>product-listing.js</strong> deve ser algo como isto: </p>
+<pre><code class="js">import ProductData from './ProductData.js';
+import ProductList from './ProductList.js';
+import { loadHeaderFooter, getParam } from './utils.mjs';
+
+loadHeaderFooter();
+
+const category = getParam('category');
+// first create an instance of the ProductData class.
+const dataSource = new ProductData();
+// then get the element you want the product list to render in
+const listElement = document.querySelector('.product-list');
+// then create an instance of the ProductList class and send it the correct information.
+const myList = new ProductList(category, dataSource, listElement);
+// finally call the init method to show the products
+myList.init();</code></pre>
+<h4 class="step">Corrija a página de Detalhes do Produto</h4>
+<p>Se tentar clicar em um dos produtos para ver os detalhes, você notará que está com erro. Você precisará fazer algumas das mesmas alterações em <strong>product.js</strong> e <strong>productDetail.js</strong> que você fez para a listagem de produtos. </p>
+<p>Existem alguns lugares que você precisa verificar para fazer isso.</p>
+<ul>
+<li>Atualize a URL listada para um cartão de produto.</li>
+<li>Atualize o <code>findProductById</code> método para consultar a API diretamente sobre o produto com base no parâmetro ID. O endpoint da URL da API deve ser assim: <pre><code class="js">${baseURL}product/${id}</code></pre>
+</li>
+<li> Assim que conseguir fazê-lo funcionar, você descobrirá que a imagem está quebrada. Você precisa descobrir o motivo. Veja abaixo mais detalhes sobre isso.</li>
+</ul>
+<h4 class="step">Corrija as imagens</h4>
+<p> A estrutura de dados dos produtos mudou ligeiramente. É por isso que as imagens estão quebradas. Analise os dados que retornam da API e descubra como corrigir esse problema.</p>
+<div class="callout info">
+<p> Você pode usar a imagem <code>PrimaryMedium</code> para o productList e <code>PrimaryLarge</code> para o productDetail por enquanto. </p>
+</div>
+<h4 class="step">Corrija o título</h4>
+<p> O título da página de listagem de produtos atualmente diz: <strong>Produtos em Destaque</strong>. Adicione a categoria a ele para que fique parecido com isto:<br/> <code>Top Products: Backpacks</code><br/>
+<em>Se a categoria <code>backpacks</code> foi selecionada.</em>
+</p>
+<h3>Exemplo de Solução</h3>
+<div class="callout warning">
+<p> Não <strong>NÃO</strong> abra o exemplo de solução até ter trabalhado nesta atividade em equipe por pelo menos uma hora. Ao final da hora, se você ainda estiver enfrentando dificuldades com alguns dos requisitos principais, fique à vontade para ver o exemplo de solução e usá-lo para ajudá-lo a concluir seu próprio código. Mesmo se usar o código de exemplo para ajudá-lo, fique à vontade para relatar que concluiu os requisitos principais, se tiver escrito o código por conta própria. Lembre-se, este é apenas um exemplo. </p>
+<details>
+<summary>Exemplo de Solução</summary>
+<p>A solução de exemplo pode ser encontrada no <strong>src</strong> diretório: <a href="https://github.com/byui-cse/wdd330-sleepoutside/tree/week3-Individual" rel="noreferrer" target="_blank">Repositório WDD
+            330 Sleep Outside <strong>week3-Individual</strong> branch</a>.
+        </p>
+</details>
+</div>
+<h3>Finalmente</h3>
+<p> Conclua este trabalho de projeto individual finalizando seu trabalho individual e, em seguida,
+      coordenando com sua equipe.</p>
+<ol>
+<li>Faça commit e envie suas alterações.</li>
+<li>Reúna-se com sua equipe e discuta quais alterações (branch) do membro da equipe vocês gostariam de
+        manter.<br/> Sua equipe manterá apenas uma.</li>
+<li>Envie uma requisição para a branch que vocês decidiram manter.</li>
+<li>Revise o Pull Request, feche-o e mescle a branch de volta na branch Main.</li>
+<li>Mova o cartão do Trello para a <code>"Done"</code> coluna.</li>
+</ol>
+<h3>Envio</h3>
+<p>Retorne ao Canvas para relatar seu trabalho.</p>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S03 – Atividade de Aprendizagem: S03: Formulários HTML e Validação de Entrada do Usuário</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span class="active"><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S03 – Atividade de Aprendizagem: S03: Formulários HTML e Validação de Entrada do Usuário</h2>
+<h3>Visão Geral</h3>
+<p>Os formulários fornecem uma interface para entrada e interação do usuário. Eles são essenciais para coletar dados dos usuários, como em formulários de contato, pesquisas e checkouts de e-commerce. O HTML fornece um conjunto de elementos para criar formulários, permitindo que os desenvolvedores definam campos de entrada, botões e outros controles. Esta atividade se concentra em validar a entrada do usuário e aprimorar a experiência do usuário, garantindo que os dados inseridos estejam corretos e completos antes do envio.</p>
+<h3>Preparação</h3>
+<h4>Validação de Formulário</h4>
+<p>A validação de formulário é o processo de verificar a entrada do usuário em um formulário antes de ele ser enviado para garantir que os dados atendam a critérios específicos. Isso pode incluir verificar campos obrigatórios, validar endereços de e-mail, garantir que os números estejam dentro de uma determinada faixa e muito mais.</p>
+<p><strong>HTML5</strong> introduziu atributos nativos de validação de formulário que permitem aos desenvolvedores especificar regras de validação diretamente na marcação HTML. Esses atributos incluem <code>required</code>, <code>pattern</code>,
+      <code>min</code>,
+      <code>max</code>, e mais. Quando um formulário é enviado, o navegador verifica automaticamente esses atributos e fornece feedback ao usuário se a entrada não atender aos critérios especificados. </p>
+<p>Aqui está um exemplo de um formulário HTML básico com validação:</p>
+<pre><code class="language-html">&lt;form id="myForm"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;label for="age"&gt;Age:&lt;/label&gt;
+  &lt;input type="number" id="age" name="age" min="18" max="100" required&gt;
+  &lt;button type="submit"&gt;Enter Contest&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<div class="callout info">
+<p> Neste exemplo, o formulário inclui um campo de entrada de e-mail que é obrigatório e um campo de entrada numérico para a idade que deve estar entre 18 e 100. O <code>required</code> atributo garante que o usuário não possa enviar o formulário sem preencher esses campos. Os <code>min</code> e <code>max</code> atributos na entrada de idade garantem que o usuário insira uma idade válida dentro do intervalo especificado. </p>
+</div>
+<p><strong>CSS</strong> pode aprimorar a experiência do usuário fornecendo feedback visual para entradas de formulário válidas e inválidas. As <code>:valid</code> e <code>:invalid</code> pseudoclasses podem ser usadas para estilizar elementos de formulário com base em seu estado de validação. Por exemplo, você pode alterar a cor da borda de um campo de entrada para verde quando for válido e para vermelho quando for inválido. Esse feedback visual ajuda os usuários a identificar rapidamente quais campos precisam de atenção. </p>
+<p>Aqui está um exemplo básico de como usar pseudoclasses CSS para validação de formulário:</p>
+<pre><code class="css">input:valid { 
+  border-color: green;
+}
+
+input:invalid {
+  border-color: red;
+}</code></pre>
+<p><strong>JavaScript</strong> pode ser usado para aprimorar a experiência de validação de formulário fornecendo lógica de validação personalizada, manipulando cenários complexos de validação e fornecendo feedback em tempo real aos usuários. Isso pode incluir verificar se dois campos coincidem (por exemplo, confirmação de senha), validar formatos de entrada e impedir o envio do formulário se os dados forem inválidos. </p>
+<p>Aqui está um exemplo do uso do JavaScript para validar um formulário:</p>
+<pre><code class="javascript">const form = document.getElementById('myForm');
+form.addEventListener('submit', function(event) {
+  const email = document.getElementById('email').value;
+  const age = document.getElementById('age').value;
+  if (!email || !age) {
+    event.preventDefault(); // Prevent form submission
+    alert('Please fill out all required fields.');
+  } else if (age &lt; 18 || age &gt; 100) {
+    event.preventDefault(); // Prevent form submission
+    alert('Age must be between 18 and 100.');
+  }
+});</code></pre>
+<div class="callout warning">
+<p>Os métodos nativos do JavaScript são frequentemente usados e são blocos de construção essenciais para a validação de entrada do usuário. A validação de formulário moderna baseia-se neles ao enfatizar uma abordagem de defesa em profundidade (cliente E servidor), priorizando uma excelente experiência do usuário e, muitas vezes, aproveitando o poder de bibliotecas especializadas ou funcionalidades de framework para cenários mais complexos, tudo isso mantendo a acessibilidade em mente.</p>
+</div>
+<h4>URLSearchParams</h4>
+<p>URLSearchParams é um objeto JavaScript nativo que fornece métodos para trabalhar com a string de consulta de uma URL. Ele permite acessar e manipular facilmente os parâmetros na string de consulta, tornando-o útil para tarefas como recuperar valores de <strong>envios de formulários</strong> ou construir URLs com parâmetros específicos. </p>
+<ul>
+<li>Revise URLSearchParams do curso pré-requisito: <a href="https://byui-cse.github.io/wdd231-ww-course/week04/prepare-adv-forms.html">Formulários HTML Avançados</a> – WDD 231</li>
+</ul>
+<h4>pseudoclasses :valid e :invalid</h4>
+<p>As <code>:valid</code> e <code>:invalid</code> pseudoclasses no CSS são usadas para estilizar elementos de formulário com base em seu estado de validação. Elas fornecem feedback visual aos usuários sobre se a entrada fornecida atende aos critérios de validação especificados. Por padrão, os elementos de formulário são considerados válidos, a menos que tenham restrições de validação que não sejam atendidas.</p>
+<p>A <code>:valid</code> A pseudoclasse aplica estilos a elementos de formulário que possuem uma entrada válida de acordo com as regras de
+      validação definidas. Por exemplo, se um campo de entrada for <code>required</code> e o usuário tiver inserido um valor, o campo será
+      considerado válido, e quaisquer estilos CSS definidos para <code>:valid</code> serão aplicados.</p>
+<p>A <code>:invalid</code> pseudoclasse aplica estilos a elementos de formulário que possuem entrada inválida de acordo com as regras de
+      validação definidas. Por exemplo, se um campo de entrada for <code>required</code> e estiver vazio, o campo será
+      considerado inválido, e quaisquer estilos CSS definidos para <code>:invalid</code> serão aplicados.</p>
+<p>Os seguintes atributos estão disponíveis para validação de formulário no HTML5:</p>
+<ul>
+<li><code>required</code>: Especifica que um campo de entrada deve ser preenchido antes de enviar o formulário.</li>
+<li><code>pattern</code>: Define uma expressão regular com a qual o valor de entrada deve corresponder.</li>
+<li><code>min</code> e <code>max</code>: Definem os valores mínimo e máximo para campos de entrada numéricos.</li>
+<li><code>type</code>: Especifica o tipo de entrada (por exemplo, email, number, url) que possui regras de validação integradas.</li>
+<li><code>minlength</code> e <code>maxlength</code>: Definem o número mínimo e máximo de caracteres permitidos em um campo de entrada de texto.</li>
+<li><code>step</code>: Especifica os intervalos numéricos válidos para campos de entrada numéricos.</li>
+</ul>
+<p>Aqui estão exemplos de como usar as pseudoclasses <code>:valid</code> e <code>:invalid</code> no CSS:</p>
+<pre><code class="css">input:valid {
+  border-color: green;
+}
+input:invalid {
+  border-color: red;
+}</code></pre>
+<p>Neste exemplo, quando um campo de entrada for válido, a cor da sua borda mudará para verde, e quando for inválido, a cor da borda mudará para vermelho.
+      Esse feedback visual ajuda os usuários a identificar rapidamente quais campos precisam de atenção e os incentiva a corrigir sua entrada.</p>
+<div class="callout warning">
+<p>Ao projetar formulários e validação, é importante lembrar que os usuários podem cometer erros ou ter
+      diferentes níveis de proficiência técnica. Portanto, é essencial fornecer mensagens de erro claras e úteis
+      quando a validação falhar. Evite culpar o usuário pelos erros; em vez disso, oriente-o sobre como corrigir sua
+      entrada. Use uma linguagem amigável e forneça instruções específicas sobre o que precisa ser corrigido.</p></div>
+<p>Para ajudar a melhorar a experiência do usuário, você pode restringir os estados válido/inválido usando as pseudoclasses <code>:valid</code> e <code>:invalid</code> no CSS para fornecer feedback visual aos usuários. Uma maneira de fazer isso é com a pseudoclasse :focus: Por exemplo, apenas dispare as pseudoclasses :valid/:invalid quando o campo de entrada estiver em foco. <pre><code class="css">input:focus:invalid {
+  border-color: red;
+}</code></pre>
+</p>
+<h3>Instruções da Atividade</h3>
+<ol>
+<li>Navegue até este 📑 <a href="https://codepen.io/BYU-Idaho/pen/yyNMmRy" target="_blank">Formulário</a> de exemplo. </li>
+<li>Faça um fork do CodePen na sua própria conta do CodePen.</li>
+<li>Modifique o exemplo: <ol>
+<li>Adicionando atributos de validação de formulário HTML aos elementos do formulário conforme achar adequado, por exemplo,
+            required.</li>
+<li>Adicionando um campo que exija que o usuário insira o valor principal novamente para
+            verificação.</li>
+<li>Use a validação em JavaScript para verificar imediatamente se os valores principais coincidem e
+            notificar o usuário e exigir que os valores principais sejam inseridos novamente.</li>
+<li>Adicione ou modifique o código adicional para garantir que a saída NaN (Not a Number) não <strong>NÃO</strong> ocorra. </li>
+</ol>
+</li>
+<li>Adicione as pseudoclasses valid e invalid de elementos de formulário em CSS para indicar visualmente que os campos individuais passaram na validação.</li>
+</ol>
+<div class="callout reference">
+<h4>Recursos Opcionais</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank">Formulários HTML</a> – MDN</li>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#using_built-in_form_validation" target="_blank">Uso de validação de formulário integrada</a> – MDN </li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript" target="_blank">Validação de formulários usando JavaScript</a> – MDN</li>
+<li><a href="https://javascript.info/form-elements" target="_blank">Propriedades e métodos de
+            formulário</a> – javascript.info</li>
+<li><a href="https://wesbos.com/javascript/05-events/prevent-default-and-form-events" target="_blank">Prevenir o Comportamento
+            Padrão e Eventos de Formulário</a> – wesbos.com</li>
+</ul>
+</div>
+<hr/>
+<nav>
+<span><a href="index.html">Voltar</a></span>
+</nav>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | S04 | Atividade em Equipe</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-End II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span class="active"><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>S04 Atividade em Equipe: Checkout</h2>
+<h3>Visão Geral</h3>
+<p> A próxima etapa para o site é construir o processo de checkout. </p>
+<h3>Instruções da Atividade</h3>
+<p> Conclua a seguinte tarefa em equipe. Designe um membro da equipe como o "condutor principal" e colaborem em sua cópia do código. Todos na equipe devem estar ativamente engajados na escrita do código e na contribuição para a solução. Assim que a solução estiver funcionando, garanta que todos na equipe obtenham uma cópia do código. </p>
+<div class="callout info">
+<p> Há muitos pontos onde exemplos de código foram fornecidos. Para aproveitar ao máximo esta atividade, não olhe para os exemplos até que sua equipe tenha tentado essa seção. Depois de olhar o exemplo, resista à tentação de copiar/colar. Use os exemplos para obter correções ou para ajudar a sair do impasse. </p>
+</div>
+<h3>Requisitos Principais</h3>
+<h4 class="step">Trello</h4>
+<ol>
+<li>Na reunião síncrona, o condutor deve visitar a cópia da equipe do quadro do Trello do projeto.</li>
+<li>Adicione cada um dos membros da equipe presentes ao <code>Team Activity 04: Checkout</code> cartão. </li>
+<li>Mova-o para a <code>"Doing"</code> lista no Trello.</li>
+<li>Leiam os detalhes do cartão juntos.</li>
+</ol>
+<h4 class="step">Branch do GitHub</h4>
+<ol>
+<li>Puxe quaisquer alterações do projeto do GitHub da equipe antes de prosseguir.</li>
+<li>Crie uma nova branch chamada <code><em>driverinitials</em>--team4</code>.
+      </li>
+</ol>
+<h4 class="step">O Carrinho</h4>
+<p>Verifique a página do seu carrinho para ter certeza de que ela está exibindo o total corretamente.</p>
+<div class="callout info">
+<p>Se não estiver, alguém da sua equipe deve concluir esse cartão no Trello.</p>
+</div>
+<ol>
+<li>Adicione um <strong>Checkout</strong> botão/link que abre a página de checkout.</li>
+<li>Em seguida, construa um <code>form</code> na página <strong>checkout/index.html</strong> para coletar as informações necessárias dos usuários.<br/> O seguinte é necessário: <ol>
+<li>Nome do Cliente <ol class="check">
+<li>Nome</li>
+<li>Sobrenome</li>
+</ol>
+</li>
+<li>Endereço (trate o endereço de cobrança e de entrega como o mesmo por simplicidade) <ol class="check">
+<li>Endereço</li>
+<li>Cidade</li>
+<li>Estado</li>
+<li>CEP</li>
+</ol>
+</li>
+<li>Pagamento <ol class="check">
+<li>Número do Cartão de Crédito</li>
+<li>Data de Validade</li>
+<li>Código de Segurança</li>
+</ol>
+</li>
+<li>Botão de Checkout</li>
+</ol>
+</li>
+<li>O formulário não deve ser enviado a menos que todos os campos estejam preenchidos.</li>
+<li>Inclua um resumo do pedido em algum lugar próximo ao formulário que inclua: <ul class="check">
+<li>Subtotal</li>
+<li>Imposto</li>
+<li>Estimativa de Frete</li>
+<li>Total do Pedido</li>
+</ul>
+<div class="callout info">
+<p>Em um site real, o servidor também deve verificar os totais para garantir que o usuário não tente nenhuma malandragem.</p>
+</div>
+</li>
+</ol>
+<h4 class="step">Resumo do Pedido</h4>
+<ol>
+<li>Preencha as informações na seção de resumo do pedido.<br/> ✔ O valor subtotal dos itens virá dos itens no carrinho.<br/> ✔ Adicione o imposto e depois os custos de frete.<br/> ✔ Calcule o total do pedido.<br/>
+<div class="callout info">
+<p> Normalmente, o imposto e o frete seriam calculados de acordo com o endereço de destino. Haveria um processo de consulta que descobriria os valores corretos a serem usados. Para manter a simplicidade, use as mesmas fórmulas para todos os pedidos.</p>
+<p><strong>Imposto</strong>: Use 6% de imposto sobre vendas no valor subtotal.<br/>
+<strong>Frete</strong>: Use $10 para o primeiro item mais $2 para cada item adicional depois disso. </p>
+</div>
+</li>
+<li>Crie um <strong>CheckoutProcess.mjs</strong> módulo.</li>
+<li>Exporte uma classe padrão chamada <code>CheckoutProcess</code> módulo.</li>
+<li>Em <code>CheckoutProcess</code>, adicione um método para calcular e exibir o subtotal do item. Este método deve ser chamado quando a página for carregada.</li>
+<li>Em <code>CheckoutProcess</code>, crie outro método para calcular e exibir impostos, frete e o total do pedido. Este método deve ser chamado após o usuário preencher o CEP. <details>
+<summary>Exemplo: <code>CheckoutProcess.mjs</code></summary>
+<pre><code class="js">export default class CheckoutProcess {
+  constructor(key, outputSelector) {
+    this.key = key;
+    this.outputSelector = outputSelector;
+    this.list = [];
+    this.itemTotal = 0;
+    this.shipping = 0;
+    this.tax = 0;
+    this.orderTotal = 0;
+  }
+
+  init() {
+    this.list = getLocalStorage(this.key);
+    this.calculateItemSummary();
+  }
+
+  calculateItemSubTotal() {
+    // calculate and display the total dollar amount of the items in the cart, and the number of items.
+    
+  }
+
+  calculateOrderTotal() {
+    // calculate the tax and shipping amounts. Add those to the cart total to figure out the order total
+    this.tax = (this.itemTotal ...)
+    this.shipping =
+    this.orderTotal =
+
+    // display the totals.
+    this.displayOrderTotals();
+  }
+
+  displayOrderTotals() {
+    // once the totals are all calculated display them in the order summary page
+    const tax = document.querySelector(`${this.outputSelector} #tax`);
+
+
+    tax.innerText = `$${this.tax.toFixed(2)}`;
+  }
+}</code></pre>
+</details>
+</li>
+</ol>
+<h4 class="step">Refatorar ProductData</h4>
+<p> Use o mesmo servidor das semanas anteriores para obter os produtos para enviar os pedidos, no entanto, há um endpoint diferente. A URL é:</p>
+<pre><code>https://wdd330-backend-osp8.onrender.com/checkout</code></pre>
+<p>Observe que, como os dados agora estão sendo enviados para o servidor, uma <code>POST</code> requisição é necessária em vez de uma <code>GET</code> requisição. </p>
+<p>O <code>ProductData</code> módulo está fazendo requisições para o servidor no momento e, portanto, este seria o local lógico para adicionar a funcionalidade de enviar um pedido. No entanto, o nome "<code>ProductData</code>" torna-se menos descritivo do que está acontecendo no módulo. Seria mais descritivo nomeá-lo como <code>ExternalServices</code>.
+    </p>
+<div class="callout info">
+<p> Se você entrou um pouco em pânico quando leu isso, significa que está prestando atenção. Renomear algo que você já usou em vários lugares não é algo a se fazer levianamente, mas às vezes é necessário. Por conta disso, boas ferramentas de desenvolvimento, como o VS Code, possuem formas integradas de auxiliar no desenvolvimento.</p>
+</div>
+<ol>
+<li>Faça commit e envie suas alterações antes de prosseguir. Isso facilitará a reversão se algo der errado.</li>
+<li>Abra <strong>ProductData.mjs</strong> e selecione a palavra <code>ProductData</code> na definição da classe. Clique com o botão direito sobre ela e selecione <strong>Renomear símbolo</strong> no menu. </li>
+<li>Digite "<code>ExternalServices</code>" e mantenha pressionada a tecla <kbd>ctrl</kbd> enquanto pressiona enter/return (ou qualquer combinação de teclas que o menu suspenso indicar) para pré-visualizar a alteração. Um novo painel chamado <strong>Pré-visualização da Refatoração</strong> será aberto no editor e exibirá todas as instâncias em que o nome precisará ser alterado. Clique com o botão esquerdo do mouse em uma das linhas e isso abrirá o arquivo mostrando a alteração proposta. Clicar em <strong>Aplicar</strong> no painel enviará a alteração. Revise cada alteração e faça as atualizações conforme necessário. </li>
+<li> Em seguida, renomeie o arquivo do módulo para que ele reflita a alteração. Se você clicar com o botão direito no arquivo no Explorador de Arquivos e selecionar renomear, deverá receber uma mensagem pop-up perguntando se também deseja renomear as importações. Diga que sim e selecione <code>File-&gt;Save All</code> novamente. </li>
+<li>Finalmente, apenas para ter certeza de que nada foi esquecido, vá para a Barra de Atividades na lateral da janela do seu VS Code e clique no ícone Pesquisar (lupa 🔎) (ctrl/cmd + shift + F). Digite <code>ProductData</code> e se houver mais alguma instância, altere-a. </li>
+<li>Teste as páginas de lista de produtos e detalhes do produto para garantir que ainda funcionem.</li>
+</ol>
+<h4 class="step">Enviar o Pedido – <code>CheckoutProcess</code></h4>
+<p>O processo de checkout envolverá um servidor. Ele espera que enviemos a ele um objeto com todas as informações sobre o pedido em um formato específico. O objeto deve se parecer com o seguinte (a ordem dos campos não importa):</p>
+<pre><code class="js">{
+  orderDate: '2021-01-27T18:18:26.095Z',
+  fname: "John",
+  lname: "Doe",
+  street: "123 Main",
+  city: "Rexburg",
+  state: "ID",
+  zip: "83440",
+  cardNumber: "1234123412341234",
+  expiration: "8/21",
+  code: "123",
+  items: [{
+    id: "20CXG"
+    name: "The North Face Pivoter 27 L Backpack"
+    price: 39.99,
+    quantity: 1
+  }, {
+    id: "14GVF",
+    name: "Marmot 5°F Rampart Down Sleeping Bag - 650 Fill, Mummy (For Men and Women)",
+    price: 229.99,
+    quantity: 1
+  }],
+  orderTotal: "298.18",
+  shipping: 12,
+  tax: "16.20"
+}</code></pre>
+<div class="callout info">
+<p>Observe que as chaves no seu objeto DEVEM corresponder às chaves mostradas acima. Você não pode enviar "firstName". Deve ser "fname". É isso que o servidor estará esperando. Verifique seus nomes no formulário HTML se houver diferenças. </p>
+</div>
+<ol>
+<li>Escreva uma função em <code>CheckoutProcess</code> que será usada para preparar a lista de itens do pedido para uso neste módulo. <pre><code class="js">// takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
+function packageItems(items) {
+  // convert the list of products from localStorage to the simpler form required for the checkout process.
+  // An Array.map would be perfect for this process.
+        
+}</code></pre>
+</li>
+<li>Escreva uma <code>checkout</code> função em <code>CheckoutProcess</code> que será chamada quando o formulário for enviado, preparará o objeto de dados e o enviará para <code>ExternalServices</code>.
+        <pre><code class="js">async checkout(form) {
+  // get the form element data by the form name
+  // convert the form data to a JSON order object using the formDataToJSON function
+  // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items
+  // call the checkout method in the ExternalServices module and send it the JSON order data.
+}</code></pre>
+<p> Se estiver com dificuldades para converter seu formulário no objeto necessário, dê uma olhada na função abaixo. </p>
+<details>
+<summary>Exemplo</summary>
+<pre><code class="js">// takes a form element and returns an object where the key is the "name" of the form input.
+function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
+}</code></pre>
+</details>
+</li>
+<li> Use <code>1234123412341234</code> para o número do cartão, <code>123</code> para o código de segurança e qualquer data de expiração no futuro se desejar que seu pedido seja concluído com sucesso. <div class="callout info">
+<p> Para os testes, para economizar tempo e digitação, lembre-se de que você pode definir a <code>value=""</code> propriedade de um elemento de entrada HTML. Lembre-se de remover seus valores padrão assim que tudo estiver funcionando. </p>
+</div>
+</li>
+<li> O método deve fazer um POST desse objeto. Você precisará criar um objeto de opções personalizado e passá-lo com o seu fetch. (Lembre-se de converter seu objeto para string antes de enviá-lo!) para o endereço acima (https://wdd330-backend-osp8.onrender.com/checkout) e retornar a resposta do servidor. A resposta será JSON. <div class="callout info">
+<p>Todas as requisições feitas até agora foram bastante simples e as configurações padrão para o fetch foram suficientes. As configurações padrão não funcionarão para nós aqui. O Fetch possui um segundo argumento opcional que é para opções. Um objeto de opções que funcionará para uso aqui está abaixo:</p>
+<pre><code class="js">const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(payload)}</code></pre>
+<p>Isso pode ser usado assim:</p>
+<pre><code class="js">fetch(url, options);</code></pre>
+</div>
+<div class="callout info">
+<p> As escolhas incluem observar um <code>click</code> evento no botão do formulário, ou observar um <code>submit</code> evento no formulário. </p>
+</div>
+</li>
+<li> Qualquer que seja sua escolha, você vai querer evitar que o formulário faça o que normalmente faria no envio. Você pode fazer isso chamando <code>event.preventDefault()</code> na função listener. </li>
+<li> Você pode considerar esta atividade concluída quando receber uma resposta do seu POST para o servidor. A próxima atividade continuará isso lidando adequadamente com as respostas de sucesso e falha. </li>
+</ol>
+<h3>Solução de Exemplo</h3>
+<div class="callout warning">
+<p> Como parte desta atividade em equipe, espera-se que você examine uma solução do instrutor, para comparar sua abordagem com aquela. <strong>NÃO</strong> abra a solução até ter trabalhado nesta atividade em equipe por pelo menos uma hora. Ao final da hora, se você ainda estiver com dificuldades em alguns dos requisitos principais, sinta-se à vontade para ver a solução de exemplo e usá-la para ajudar a concluir seu próprio código. </p>
+<details>
+<summary>Solução de Exemplo</summary>
+<p>A solução de exemplo pode ser encontrada no <strong>src</strong> diretório: <a href="https://github.com/byui-cse/wdd330-sleepoutside/tree/week4-Team" rel="noreferrer" target="_blank">Repositório do WDD 330 Sleep Outside <strong>week4-Team</strong> branch</a>.</p>
+</details>
+</div>
+<h3>Fazer um Pull Request</h3>
+<p> Depois de ter concluído o que puder, revisado a solução de exemplo e colocado seu código para funcionar:</p>
+<ol>
+<li>o driver deve fazer o commit e enviar as alterações,</li>
+<li>o driver deve enviar um pull request para esta branch,</li>
+<li>a equipe revisa o pull request, o fecha e mescla a branch de volta para a <strong>Main</strong>, e </li>
+<li>finalmente, alguém move o cartão do Trello para "<strong>Done</strong>".</li>
+</ol>
+<h3>Envio</h3>
+<p>Retorne ao Canvas para relatar seu trabalho.</p>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

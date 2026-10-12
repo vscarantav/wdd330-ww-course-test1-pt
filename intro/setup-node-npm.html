@@ -1,0 +1,94 @@
+html
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>WDD 330 | e Instalação do Node e NPM</title>
+<link href="https://byui-cse.github.io/cse-ww-program/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="https://byui-cse.github.io/cse-ww-program/favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../styles/course.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css" rel="stylesheet"/>
+<script defer="" src="../scripts/displayDateTimes.js"></script>
+<script crossorigin="anonymous" src="https://js-cdn.dynatrace.com/jstag/16294a69b33/bf29241ovs/dbc89d251a7e931d_complete.js" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<div class="page">
+<h1>WDD 330<span id="coursetitle">: Desenvolvimento Web Front-end II</span></h1>
+<img alt="Logo da BYU-I" class="logo" src="../images/byui-logo.svg"/>
+</div>
+</header>
+<main class="page">
+<nav>
+<span><a href="../">Início</a></span>
+<span class="active"><a href="../week01/">S1</a></span>
+<span><a href="../week02/">S2</a></span>
+<span><a href="../week03/">S3</a></span>
+<span><a href="../week04/">S4</a></span>
+<span><a href="../week05/">S5</a></span>
+<span><a href="../week06/">S6</a></span>
+<span><a href="../week07/">S7</a></span>
+</nav>
+<h2>e Instalação do Node e NPM</h2>
+<h3>Visão Geral</h3>
+<p> O Node e o gerenciador de pacotes do Node (NPM) são usados para instalar e gerenciar as ferramentas e bibliotecas que serão usadas neste curso e são obrigatórios. </p>
+<h3>Node e NPM</h3>
+<p>O Node é um tempo de execução JavaScript que ganhou muita popularidade nos últimos anos. Existem muitas ferramentas e utilitários úteis que podem ser executados usando ele. O NPM é o Node Package Manager (Gerenciador de Pacotes do Node). Ele é instalado automaticamente com o Node e é usado para adicionar e remover utilitários.</p>
+<p class="smaller">Para instruções mais detalhadas, visite: <a href="http://blog.teamtreehouse.com/install-node-js-npm-windows" rel="noopener" target="_blank">http://blog.teamtreehouse.com/install-node-js-npm-windows</a></p>
+<h4 class="step">Verificar Instalação Anterior</h4>
+<p>
+<strong>Antes de</strong> instalar o Node.js, certifique-se de que você ainda não tem o Node.js instalado. </p>
+<ol>
+<li>Abra uma janela do terminal (Mac) ou do prompt do CMD/PowerShell (Windows).</li>
+<li>Digite <code class="cli">node -v</code> ou <code class="cli">node --version</code>.</li>
+<li>Se um número de versão for fornecido (ex.: <code>v</code>), você já tem o Node.</li>
+</ol>
+<h4 class="step">Instalação</h4>
+<details>
+<summary>Usuários do Windows</summary>
+<ol>
+<li> Baixe a versão recomendada <strong>LTS</strong> do instalador do Windows no <a href="http://nodejs.org/" rel="noopener" target="_blank">site do Node.js®</a>.
+        </li>
+<li>
+<strong>Execute o instalador</strong> (o arquivo .msi que você baixou na etapa anterior). </li>
+<li>
+<strong>Siga as instruções no instalador</strong> (Aceite o contrato de licença, clique no botão NEXT várias vezes e aceite as configurações de instalação padrão). </li>
+<li>
+<strong>Reinicie o seu computador.</strong> Você não poderá executar o Node.js® até reiniciar o seu computador. </li>
+<li> Para verificar se funcionou, digite o seguinte no prompt de comando: <code>node -v</code>. Se você receber de volta o número da versão, está tudo pronto. </li>
+</ol>
+</details>
+<details>
+<summary>Usuários do macOS</summary>
+<p>Para o Mac, instale a ferramenta <a href="https://github.com/nvm-sh/nvm" rel="noopener" target="_blank">Node Version Manager (nvm)</a> primeiro e, em seguida, use-a para instalar o Node. Há algumas vantagens em fazer dessa forma... a maior delas é que torna muito fácil alternar entre versões do Node quando necessário (acontece mais do que você imagina como desenvolvedor) e as ferramentas de desenvolvedor da Apple são necessárias. Essas ferramentas podem ser obtidas de duas maneiras: <ol>
+<li id="xcode"> Se você acha que algum dia vai querer compilar aplicativos nativos para MacOS ou iOS, baixe e instale o <strong>XCode.</strong> O software de desenvolvimento XCode da Apple é usado para compilar aplicativos para Mac e iOS, mas também inclui as ferramentas necessárias para compilar software para uso no seu Mac. O XCode é gratuito e você pode encontrá-lo no <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12" rel="noopener" target="_blank">XCode no iTunes</a>. Depois de instalá-lo, abra-o pelo menos uma vez para aceitar os Termos. A próxima etapa não funcionará a menos que você faça isso. </li>
+<li>
+<strong>*Recomendado para a maioria!</strong> Se você não quiser baixar e instalar o XCode completo (ele é bastante grande), poderá instalar apenas as ferramentas de desenvolvedor seguindo <a href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/" rel="noopener" target="_blank">estas instruções</a>.
+        </li>
+</ol>
+</p>
+<p> Instalar o Node e o NPM com o nvm é bem simples. <ol>
+<li> Para instalar o nvm, <strong>abra o aplicativo Terminal</strong> e digite: <pre class="language-bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh <span class="token operator">|</span> <span class="token function">bash</span></code></pre>
+</li>
+<li> Assim que a instalação do nvm for concluída, você poderá obter a cópia mais recente da versão de Suporte a Longo Prazo (LTS) digitando o seguinte: <pre><code class="language-bash">nvm install --lts</code></pre>
+</li>
+<li> Para verificar se funcionou, digite o seguinte no terminal: <code>node -v</code>. Se você receber de volta o número da versão, está tudo pronto. </li>
+</ol>
+<div class="callout info">
+<p> Desde o macOS 10.15, o shell padrão é o zsh e o nvm procurará o .zshrc para atualizar, sendo que nenhum está instalado por padrão. Se você receber um erro ao instalar acima, crie este arquivo digitando o seguinte em seu terminal: </p>
+<pre><code class="language-bash">touch ~/.zshrc</code></pre>
+</div>
+</p>
+</details>
+</main>
+<footer>
+<p>Copyright © Brigham Young University-Idaho | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
